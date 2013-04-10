@@ -17,6 +17,9 @@
                  [org.slf4j/jcl-over-slf4j "1.7.2"]
                  [org.slf4j/log4j-over-slf4j "1.7.2"]
                  
+                 ;; Service dependencies
+                 [org.languagetool/language-en "2.1"]
+                 
                  ;; Clojurescript
                  [prismatic/dommy "0.1.0"]
                  [cljs-ajax "0.1.0"]
