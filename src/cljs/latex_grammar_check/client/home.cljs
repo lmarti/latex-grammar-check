@@ -9,7 +9,7 @@
 (def container (sel1 :#container))
 
 (defn append-editor! [parent opts]
-  (let [text-area (template/node [:textarea#latex-markup "put some latex here to see pretty printed"])]
+  (let [text-area (template/node [:textarea#latex-markup "put some latex here to see it pretty printed"])]
     (append! parent text-area)
     (.fromTextArea js/CodeMirror text-area (clj->js opts))
     parent))

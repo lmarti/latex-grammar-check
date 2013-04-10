@@ -1,0 +1,1 @@
+web: lein cljsbuild once dev; lein run
