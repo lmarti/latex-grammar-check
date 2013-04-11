@@ -1,6 +1,6 @@
 (ns latex-grammar-check.latex
   (:require [clojure.string :as string])
-  (:import [texparser.parser LatexLexer LatexWordCounter]
+  (:import [texparser.parser LatexLexer]
            [java.io PushbackReader StringReader]
            [texparser.node EOF TCpart TArgument TWord TWhitespace]))
   
