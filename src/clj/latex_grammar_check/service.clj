@@ -1,17 +1,26 @@
 (ns latex-grammar-check.service
-    (:require [io.pedestal.service.http :as bootstrap]
-              [io.pedestal.service.http.route :as route]
-              [io.pedestal.service.http.body-params :as body-params]
-              [io.pedestal.service.http.route.definition :refer [defroutes]]
-              [ring.util.response :as ring-resp]
-              [io.pedestal.service.log :as log]
-              [latex-grammar-check.util :refer [check-grammar]]))
+  (:require [io.pedestal.service.http :as bootstrap]
+            [io.pedestal.service.http.route :as route]
+            [io.pedestal.service.http.body-params :as body-params]
+            [io.pedestal.service.http.route.definition :refer [defroutes]]
+            [ring.util.response :as ring-resp]
+            [io.pedestal.service.log :as log]
+            [latex-grammar-check.util :refer [check-grammar]]
+            [latex-grammar-check.latex :refer [extract-text]]))
 
 (defn handle-check-grammar
   [request]
   (let [latex-markup (get-in request [:params "latex-markup"])]
-    (log/info :latex-markup latex-markup)
+    (log/debug :latex-markup latex-markup)
     (->> (check-grammar latex-markup)
+         (bootstrap/edn-response))
+    ))
+
+(defn handle-extract-text
+  [request]
+  (let [latex-markup (get-in request [:params "latex-markup"])]
+    (log/debug :latex-markup latex-markup)
+    (->> (extract-text latex-markup)
          (bootstrap/edn-response))
     ))
 
@@ -24,7 +33,8 @@
      
      ;; Set default interceptors for /about and any other paths under /
      ^:interceptors [(body-params/body-params)]
-     ["/check-grammar" {:post handle-check-grammar }]]]])
+     ["/check-grammar" {:post handle-check-grammar}]
+     ["/extract-text" {:post handle-extract-text}]]]])
 
 ;; You can use this fn or a per-request fn via io.pedestal.service.http.route/url-for
 (def url-for (route/url-for-routes routes))

@@ -24,11 +24,14 @@
                  [prismatic/dommy "0.1.0"]
                  [cljs-ajax "0.1.0"]
                  [domina "1.0.1" :exclusions [org.clojure/clojure]]]
-  :profiles {:dev {:source-paths ["src/dev"]}}
+  :profiles {:dev {:source-paths ["src/dev"]
+                   :dependencies [[sablecc/sablecc "3.7"]]}}
   :min-lein-version "2.0.0"
   :resource-paths ["config" "resources"]
   :plugins [[lein-cljsbuild "0.3.0"]]
   :source-paths ["src/clj"]
+  :java-source-paths ["src/java"]
+  :resource-paths ["src/java"]
   :cljsbuild {
     :builds [{:id "dev"
               :source-paths ["src/cljs"], 
@@ -41,4 +44,5 @@
               :compiler {:output-to "resources/public/js/main.js",
                          :optimizations :advanced
                          :externs ["externs/codemirror.js"]}}]}
-  :main ^{:skip-aot true} latex-grammar-check.server)
+  :main ^{:skip-aot true} latex-grammar-check.server
+  :repositories {"3rd party" "https://github.com/alexguev/maven/raw/master/releases"})

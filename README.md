@@ -11,6 +11,8 @@ FIXME
 4. Run your app's tests with `lein test`. Read the tests at test/latex_grammar_check/service_test.clj.
 5. Learn more! See the [Links section below](#links).
 
+- AG: tbd Document generation of parser
+
 ## Configuration
 
 To configure logging see config/logback.xml. By default, the app logs to stdout and logs/.
