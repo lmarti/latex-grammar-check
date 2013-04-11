@@ -13,11 +13,17 @@
 (defn create-editor [text-area opts]
   (.fromTextArea js/CodeMirror text-area (clj->js opts)))
 
-(defn handle-grammar-check-result [result]
+(defn handle-grammar-check-result [coll]
   (replace-contents! (sel1 :#check-grammar-result)
-                     (map #(template/node [:li (:message %)]) result)))
+                     (map #(template/node [:li (:message %)]) coll))
+  (doseq [r coll]
+    (.markText (.getDoc @editor)
+               (clj->js {:line (:line r) :ch (dec (:column r))}) 
+               (clj->js {:line (:end-line r) :ch (dec (:end-column r))})
+               (clj->js {:className "Grammar-Checker-Problem"}))))
 
 (defn handle-check-grammar [e]
+  ;;(js/alert (.-doc @editor))
   (.save @editor)
   (ajax/POST "/check-grammar"
              {:handler handle-grammar-check-result
@@ -30,5 +36,7 @@
       (append! (template/node [:lu#check-grammar-result])))
   (reset! editor (create-editor (sel1 :#latex-markup) {:lineNumbers true
                                                        :mode { :name "stex" }
-                                                       :tabMode "indent"}))  
+                                                       :tabMode "indent"
+                                                       :highlightSelectionMatches true
+                                                       :styleActiveLine true}))  
   (listen! (sel1 :#check-grammar) :click handle-check-grammar))
