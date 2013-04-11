@@ -6,10 +6,6 @@
               [ring.util.response :as ring-resp]
               [io.pedestal.service.log :as log]))
 
-(defn about-page
-  [request]
-  (ring-resp/response (format "Clojure %s" (clojure-version))))
-
 (defn check-grammar
   [request]
   (let [latex-markup (get-in request [:params "latex-markup"])]
@@ -25,8 +21,7 @@
      
      ;; Set default interceptors for /about and any other paths under /
      ^:interceptors [(body-params/body-params)]
-     ["/check-grammar" {:post check-grammar }]
-     ["/about" {:get about-page}]]]])
+     ["/check-grammar" {:post check-grammar }]]]])
 
 ;; You can use this fn or a per-request fn via io.pedestal.service.http.route/url-for
 (def url-for (route/url-for-routes routes))

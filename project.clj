@@ -38,6 +38,7 @@
                          :optimizations :none}}
              {:id "prod"
               :source-paths ["src/cljs"], 
-              :compiler {:output-to "resources/public/cljs/main.js",
-                         :optimizations :advanced}}]}
+              :compiler {:output-to "resources/public/js/main.js",
+                         :optimizations :advanced
+                         :externs ["externs/codemirror.js"]}}]}
   :main ^{:skip-aot true} latex-grammar-check.server)
