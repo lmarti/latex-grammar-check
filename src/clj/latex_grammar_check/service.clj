@@ -50,4 +50,5 @@
               ;; to enable Tomcat)
               ;;::bootstrap/host "localhost"
               ::bootstrap/type :jetty
-              ::bootstrap/port 8080})
+              ::bootstrap/port (or (Integer. (get (System/getenv) "PORT" "8080")) 
+                                   8080)})
