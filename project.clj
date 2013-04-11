@@ -27,11 +27,10 @@
   :profiles {:dev {:source-paths ["src/dev"]
                    :dependencies [[sablecc/sablecc "3.7"]]}}
   :min-lein-version "2.0.0"
-  :resource-paths ["config" "resources"]
+  :resource-paths ["config" "resources" "src/java"] ;;tbd: clean this up. move lexer.dat to resources
   :plugins [[lein-cljsbuild "0.3.0"]]
   :source-paths ["src/clj"]
   :java-source-paths ["src/java"]
-  :resource-paths ["src/java"]
   :cljsbuild {
     :builds [{:id "dev"
               :source-paths ["src/cljs"], 
