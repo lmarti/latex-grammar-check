@@ -1,1 +1,1 @@
-web: lein javac; lein trampoline run
+web: lein trampoline run
