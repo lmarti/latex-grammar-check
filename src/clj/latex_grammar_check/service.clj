@@ -6,7 +6,7 @@
             [ring.util.response :as ring-resp]
             [io.pedestal.service.log :as log]
             [latex-grammar-check.util :refer [check-grammar]]
-            [latex-grammar-check.latex :refer [extract-text]]))
+            [latex-grammar-check.latex :refer [extract-text tokenize]]))
 
 (defn handle-check-grammar
   [request]
@@ -20,7 +20,9 @@
   [request]
   (let [latex-markup (get-in request [:params "latex-markup"])]
     (log/debug :latex-markup latex-markup)
-    (->> (extract-text latex-markup)
+    (->> latex-markup
+         (tokenize)
+         (extract-text)
          (bootstrap/edn-response))
     ))
 

@@ -2,6 +2,7 @@
   (:import [org.languagetool JLanguageTool]
            [org.languagetool.language BritishEnglish]))
 
+;tbd: rename namespace to language-tool
 (defn check-grammar [text]
   (let [lang-tool (JLanguageTool. (BritishEnglish.))]
     (.activateDefaultPatternRules lang-tool)

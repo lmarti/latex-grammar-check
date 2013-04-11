@@ -12,7 +12,4 @@
        (:body (response-for service :get "/"))
        "Hello World!")))
 
-(deftest about-page-test
-  (is (.contains
-       (:body (response-for service :get "/about"))
-       "Clojure 1.5")))
+(run-tests)
