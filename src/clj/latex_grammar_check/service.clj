@@ -4,13 +4,16 @@
               [io.pedestal.service.http.body-params :as body-params]
               [io.pedestal.service.http.route.definition :refer [defroutes]]
               [ring.util.response :as ring-resp]
-              [io.pedestal.service.log :as log]))
+              [io.pedestal.service.log :as log]
+              [latex-grammar-check.util :refer [check-grammar]]))
 
-(defn check-grammar
+(defn handle-check-grammar
   [request]
   (let [latex-markup (get-in request [:params "latex-markup"])]
     (log/info :latex-markup latex-markup)
-    (bootstrap/edn-response "Take your checked grammar, a tres for kilo.")))
+    (->> (check-grammar latex-markup)
+         (bootstrap/edn-response))
+    ))
 
 (defn home-page
   [request]
@@ -21,7 +24,7 @@
      
      ;; Set default interceptors for /about and any other paths under /
      ^:interceptors [(body-params/body-params)]
-     ["/check-grammar" {:post check-grammar }]]]])
+     ["/check-grammar" {:post handle-check-grammar }]]]])
 
 ;; You can use this fn or a per-request fn via io.pedestal.service.http.route/url-for
 (def url-for (route/url-for-routes routes))

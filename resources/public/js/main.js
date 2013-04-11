@@ -520,13 +520,13 @@ zb = function(a, b, c) {
 zb.a = Ab;
 zb.c = Bb;
 yb = zb;
-function Db(a, b) {
+function Cb(a, b) {
   if(a ? a.A : a) {
     return a.A(a, b)
   }
   var c;
-  var d = Db[s(a == l ? l : a)];
-  d ? c = d : (d = Db._) ? c = d : e(y("IEquiv.-equiv", a));
+  var d = Cb[s(a == l ? l : a)];
+  d ? c = d : (d = Cb._) ? c = d : e(y("IEquiv.-equiv", a));
   return c.call(l, a, b)
 }
 function Eb(a) {
@@ -727,7 +727,7 @@ function L(a) {
 var M, ac = l;
 function bc(a, b) {
   var c = a === b;
-  return c ? c : Db(a, b)
+  return c ? c : Cb(a, b)
 }
 function cc(a, b, c) {
   for(;;) {
@@ -821,7 +821,7 @@ B["null"] = p(l);
 C["null"] = function() {
   return O.t ? O.t() : O.call(l)
 };
-Db["null"] = function(a, b) {
+Cb["null"] = function(a, b) {
   return b == l
 };
 vb["null"] = j;
@@ -846,7 +846,7 @@ Date.prototype.A = function(a, b) {
   return c ? a.toString() === b.toString() : c
 };
 Eb.number = aa();
-Db.number = function(a, b) {
+Cb.number = function(a, b) {
   return a === b
 };
 Eb["boolean"] = function(a) {
@@ -1256,7 +1256,7 @@ r.J = function() {
 function Nc(a) {
   return I(L(a))
 }
-Db._ = function(a, b) {
+Cb._ = function(a, b) {
   return a === b
 };
 var Oc, Pc = l;
@@ -1672,7 +1672,7 @@ var Md, Nd = l;
 function Od(a) {
   return a == l ? "" : a.toString()
 }
-function Qd(a, b) {
+function Pd(a, b) {
   return function(a, b) {
     for(;;) {
       if(u(b)) {
@@ -1683,17 +1683,17 @@ function Qd(a, b) {
     }
   }.call(l, new Na(Nd.b(a)), b)
 }
-function Rd(a, b) {
+function Qd(a, b) {
   var c = l;
   t(b) && (c = N(Array.prototype.slice.call(arguments, 1), 0));
-  return Qd.call(this, a, c)
+  return Pd.call(this, a, c)
 }
-Rd.n = 1;
-Rd.h = function(a) {
+Qd.n = 1;
+Qd.h = function(a) {
   var b = I(a), a = J(a);
-  return Qd(b, a)
+  return Pd(b, a)
 };
-Rd.e = Qd;
+Qd.e = Pd;
 Nd = function(a, b) {
   switch(arguments.length) {
     case 0:
@@ -1701,15 +1701,15 @@ Nd = function(a, b) {
     case 1:
       return Od.call(this, a);
     default:
-      return Rd.e(a, N(arguments, 1))
+      return Qd.e(a, N(arguments, 1))
   }
   e(Error("Invalid arity: " + arguments.length))
 };
 Nd.n = 1;
-Nd.h = Rd.h;
+Nd.h = Qd.h;
 Nd.t = p("");
 Nd.b = Od;
-Nd.e = Rd.e;
+Nd.e = Qd.e;
 Md = Nd;
 var W, Sd = l;
 function Td(a) {
@@ -1927,12 +1927,9 @@ r.K = n("l");
 r.J = aa();
 var K = new ke(l);
 function le(a) {
-  if(a) {
-    var b = a.j & 134217728, a = (b ? b : a.md) ? j : a.j ? m : x(Ib, a)
-  }else {
-    a = x(Ib, a)
-  }
-  return a
+  var b;
+  b = a ? ((b = a.j & 134217728) ? b : a.md) || (a.j ? 0 : x(Ib, a)) : x(Ib, a);
+  return b ? Jb(a) : Ed.c(Oc, K, a)
 }
 var O, me = l;
 function ne(a) {
@@ -1945,7 +1942,7 @@ function pe(a, b, c) {
   return Oc.a(me.a(b, c), a)
 }
 function qe(a, b, c, d) {
-  return Oc.a(Oc.a(Oc.a(Ed.c(Oc, K, le(d) ? Jb(d) : Ed.c(Oc, K, d)), c), b), a)
+  return Oc.a(Oc.a(Oc.a(Ed.c(Oc, K, le(d)), c), b), a)
 }
 function re(a, b, c, d) {
   var f = l;
@@ -2470,23 +2467,23 @@ function $e(a, b, c) {
   if(16 === b) {
     return a.Mb ? a.Mb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca) : a.Mb ? a.Mb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca) : a.call(l, c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca)
   }
-  var Ha = B(Ra), Cb = C(Ra);
+  var Ha = B(Ra), Db = C(Ra);
   if(17 === b) {
     return a.Nb ? a.Nb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha) : a.Nb ? a.Nb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha) : a.call(l, c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha)
   }
-  var Ra = B(Cb), Pd = C(Cb);
+  var Ra = B(Db), Rd = C(Db);
   if(18 === b) {
     return a.Ob ? a.Ob(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra) : a.Ob ? a.Ob(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra) : a.call(l, c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra)
   }
-  Cb = B(Pd);
-  Pd = C(Pd);
+  Db = B(Rd);
+  Rd = C(Rd);
   if(19 === b) {
-    return a.Pb ? a.Pb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Cb) : a.Pb ? a.Pb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Cb) : a.call(l, c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Cb)
+    return a.Pb ? a.Pb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Db) : a.Pb ? a.Pb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Db) : a.call(l, c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Db)
   }
-  var ig = B(Pd);
-  C(Pd);
+  var kg = B(Rd);
+  C(Rd);
   if(20 === b) {
-    return a.Qb ? a.Qb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Cb, ig) : a.Qb ? a.Qb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Cb, ig) : a.call(l, c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Cb, ig)
+    return a.Qb ? a.Qb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Db, kg) : a.Qb ? a.Qb(c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Db, kg) : a.call(l, c, d, f, g, i, a, k, q, v, w, A, E, H, T, Q, ca, Ha, Ra, Db, kg)
   }
   e(Error("Only up to 20 arguments supported on functions"))
 }
@@ -2991,7 +2988,7 @@ var hg = function gg(b, c, d, f) {
   5 === c ? g.g[i] = f : (d = d.g[i], b = d != l ? gg(b, c - 5, d, f) : fg(l, c - 5, f), g.g[i] = b);
   return g
 };
-function jg(a, b) {
+function ig(a, b) {
   var c = 0 <= b;
   if(c ? b < a.k : c) {
     if(b >= eg(a)) {
@@ -3008,12 +3005,12 @@ function jg(a, b) {
     e(Error([W("No item "), W(b), W(" in vector of length "), W(a.k)].join("")))
   }
 }
-var lg = function kg(b, c, d, f, g) {
+var lg = function jg(b, c, d, f, g) {
   var i = new dg(d.v, d.g.slice());
   if(0 === c) {
     i.g[f & 31] = g
   }else {
-    var k = f >>> c & 31, b = kg(b, c - 5, d.g[k], f, g);
+    var k = f >>> c & 31, b = jg(b, c - 5, d.g[k], f, g);
     i.g[k] = b
   }
   return i
@@ -3117,7 +3114,7 @@ r.L = function(a, b) {
 };
 r.K = n("l");
 r.V = function(a, b) {
-  return jg(a, b)[b & 31]
+  return ig(a, b)[b & 31]
 };
 r.T = function(a, b, c) {
   var d = 0 <= b;
@@ -3206,7 +3203,7 @@ r.lb = function() {
 };
 var rg, xg = l;
 function yg(a, b, c) {
-  return xg.O(a, jg(a, b), b, c, l)
+  return xg.O(a, ig(a, b), b, c, l)
 }
 function zg(a, b, c, d) {
   return xg.O(a, b, c, d, l)
@@ -3278,7 +3275,7 @@ r.w = function(a, b, c) {
 };
 r.V = function(a, b) {
   if(this.root.v) {
-    return jg(a, b)[b & 31]
+    return ig(a, b)[b & 31]
   }
   e(Error("nth after persistent!"))
 };
@@ -5245,15 +5242,17 @@ function Ti(a) {
     b = ""
   }else {
     var c = new Na, d = new Oi(c);
-    Si(I(a), d, b);
-    for(a = G(L(a));;) {
-      if(a) {
-        var f = I(a);
-        F(d, " ");
-        Si(f, d, b);
-        a = L(a)
-      }else {
-        break
+    a: {
+      Si(I(a), d, b);
+      for(a = G(L(a));;) {
+        if(a) {
+          var f = I(a);
+          F(d, " ");
+          Si(f, d, b);
+          a = L(a)
+        }else {
+          break a
+        }
       }
     }
     Mb(d);
@@ -7247,7 +7246,7 @@ function gm(a) {
           Ql(a.aa, cm(a, "Request complete"));
           a.Ga = m;
           try {
-            var b = im(a), c;
+            var b = im(a), c, d;
             a: {
               switch(b) {
                 case 200:
@@ -7261,14 +7260,13 @@ function gm(a) {
                 case 304:
                 ;
                 case 1223:
-                  c = j;
+                  d = j;
                   break a;
                 default:
-                  c = m
+                  d = m
               }
             }
-            var d;
-            if(!(d = c)) {
+            if(!(c = d)) {
               var f;
               if(f = 0 === b) {
                 var g = String(a.$b).match(jk)[1] || l;
@@ -7277,9 +7275,9 @@ function gm(a) {
                 }
                 f = !bm.test(g ? g.toLowerCase() : "")
               }
-              d = f
+              c = f
             }
-            d ? (a.dispatchEvent("complete"), a.dispatchEvent("success")) : (a.cb = 6, a.eb = jm(a) + " [" + im(a) + "]", em(a))
+            c ? (a.dispatchEvent("complete"), a.dispatchEvent("success")) : (a.cb = 6, a.eb = jm(a) + " [" + im(a) + "]", em(a))
           }finally {
             fm(a)
           }
@@ -7676,65 +7674,70 @@ u("undefined" != typeof HTMLCollection) && (r = HTMLCollection.prototype, r.Fb =
 }, r.Cb = j, r.B = function(a) {
   return a.length
 });
-var Zm = function Ym(b) {
+function Ym(a, b) {
+  var c = $(a);
+  c.appendChild($(b));
+  return c
+}
+var $m = function Zm(b) {
   if(kd(b)) {
-    b = vj.a(" ", tf.a(Ym, b))
+    b = vj.a(" ", tf.a(Zm, b))
   }else {
     var c = td(b), b = (c ? c : ud(b)) ? pi(b) : l
   }
   return b
 };
-function $m(a) {
+function an(a) {
   return si(lf, Jf(function(a) {
     return a.parentNode
   }, $(a)))
 }
-var an, bn = l;
-function cn(a) {
-  return bn.a(document, a)
+var bn, cn = l;
+function dn(a) {
+  return cn.a(document, a)
 }
-function dn(a, b) {
-  var c, d = $($(a)).querySelectorAll(Zm(b));
+function en(a, b) {
+  var c, d = $($(a)).querySelectorAll($m(b));
   c = Array.prototype.slice.call(d);
   return function(a) {
     return 0 <= c.indexOf(a)
   }
 }
-bn = function(a, b) {
+cn = function(a, b) {
   switch(arguments.length) {
     case 1:
-      return cn.call(this, a);
+      return dn.call(this, a);
     case 2:
-      return dn.call(this, a, b)
+      return en.call(this, a, b)
   }
   e(Error("Invalid arity: " + arguments.length))
 };
-bn.b = cn;
-bn.a = dn;
-an = bn;
-var en, fn = l;
-function gn(a, b) {
-  return I(Sf(an.b(b), $m($(a))))
+cn.b = dn;
+cn.a = en;
+bn = cn;
+var fn, gn = l;
+function hn(a, b) {
+  return I(Sf(bn.b(b), an($(a))))
 }
-function hn(a, b, c) {
+function jn(a, b, c) {
   var d = $(a), a = $(b);
-  return I(Sf(an.a(d, c), si(function(a) {
+  return I(Sf(bn.a(d, c), si(function(a) {
     return a !== d
-  }, $m(a))))
+  }, an(a))))
 }
-fn = function(a, b, c) {
+gn = function(a, b, c) {
   switch(arguments.length) {
     case 2:
-      return gn.call(this, a, b);
+      return hn.call(this, a, b);
     case 3:
-      return hn.call(this, a, b, c)
+      return jn.call(this, a, b, c)
   }
   e(Error("Invalid arity: " + arguments.length))
 };
-fn.a = gn;
-fn.c = hn;
-en = fn;
-var jn = Tf(Sg, tf.a(function(a) {
+gn.a = hn;
+gn.c = jn;
+fn = gn;
+var kn = Tf(Sg, tf.a(function(a) {
   var b = V.c(a, 0, l), a = V.c(a, 1, l);
   return Y([b, $g([a], [function(a) {
     return function(b) {
@@ -7746,41 +7749,41 @@ var jn = Tf(Sg, tf.a(function(a) {
     }
   }])])
 }, Tg(["\ufdd0'mouseenter", "\ufdd0'mouseleave"], {"\ufdd0'mouseenter":"\ufdd0'mouseover", "\ufdd0'mouseleave":"\ufdd0'mouseout"})));
-function kn(a, b, c) {
+function ln(a, b, c) {
   return function(d) {
-    var f = en.c($(a), d.target, b);
+    var f = fn.c($(a), d.target, b);
     return u(f) ? (d.Zc = f, c.b ? c.b(d) : c.call(l, d)) : l
   }
 }
-function ln(a) {
+function mn(a) {
   a = $(a).Rc;
   return u(a) ? a : Sg
 }
-function mn(a, b, c) {
-  a = $(a);
-  return a.Rc = P.c(b, ln(a), c)
-}
 function nn(a, b, c) {
+  a = $(a);
+  return a.Rc = P.c(b, mn(a), c)
+}
+function on(a, b, c) {
   var d = l;
   t(c) && (d = N(Array.prototype.slice.call(arguments, 2), 0));
-  return mn.call(this, a, b, d)
+  return nn.call(this, a, b, d)
 }
-nn.n = 2;
-nn.h = function(a) {
+on.n = 2;
+on.h = function(a) {
   var b = I(a), c = I(L(a)), a = J(L(a));
-  return mn(b, c, a)
+  return nn(b, c, a)
 };
-nn.e = mn;
-function on(a, b) {
+on.e = nn;
+function pn(a, b) {
   kf(U(b)) || e(Error([W("Assert failed: "), W(S.e(N([jc(O("\ufdd1'even?", jc(O("\ufdd1'count", "\ufdd1'type-fs"), gc("\ufdd0'line", 225, "\ufdd0'column", 18))), gc("\ufdd0'line", 225, "\ufdd0'column", 11))], 0)))].join("")));
   for(var c = md(a) ? ti.a(function(a) {
     return $(I(a))
   }, J).call(l, a) : Y([$(a), l]), d = V.c(c, 0, l), c = V.c(c, 1, l), f = G(Uf.a(2, b));;) {
     if(f) {
-      for(var g = I(f), i = V.c(g, 0, l), g = V.c(g, 1, l), i = G(D.c(jn, i, $g([i], [lf])));;) {
+      for(var g = I(f), i = V.c(g, 0, l), g = V.c(g, 1, l), i = G(D.c(kn, i, $g([i], [lf])));;) {
         if(i) {
-          var k = I(i), q = V.c(k, 0, l), k = V.c(k, 1, l), k = (u(c) ? mf.c(kn, d, c) : lf).call(l, k.b ? k.b(g) : k.call(l, g));
-          nn.e(d, $f, N([Y([c, q, g]), k], 0));
+          var k = I(i), q = V.c(k, 0, l), k = V.c(k, 1, l), k = (u(c) ? mf.c(ln, d, c) : lf).call(l, k.b ? k.b(g) : k.call(l, g));
+          on.e(d, $f, N([Y([c, q, g]), k], 0));
           u(d.addEventListener) ? d.addEventListener(pi(q), k) : d.attachEvent(pi(q), k);
           i = L(i)
         }else {
@@ -7794,34 +7797,41 @@ function on(a, b) {
   }
   return a
 }
-function pn(a, b) {
+function qn(a, b) {
   var c = l;
   t(b) && (c = N(Array.prototype.slice.call(arguments, 1), 0));
-  return on.call(this, a, c)
+  return pn.call(this, a, c)
 }
-pn.n = 1;
-pn.h = function(a) {
+qn.n = 1;
+qn.h = function(a) {
   var b = I(a), a = J(a);
-  return on(b, a)
+  return pn(b, a)
 };
-pn.e = on;
-var qn = $(document).querySelector("#container");
-function rn() {
-  return pm.e("/check-grammar", N([Tg(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":function(a) {
-    return alert(a)
-  }, "\ufdd0'params":Tg(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":Om()})})], 0))
+qn.e = pn;
+var rn = Yi.b(l), sn = $(document).querySelector("#container");
+function tn(a) {
+  var b = $(document).querySelector("#check-grammar-result"), a = tf.a(function(a) {
+    return zm(Y(["\ufdd0'li", (new we("\ufdd0'message")).call(l, a)]))
+  }, a), b = $(b);
+  b.innerHTML = "";
+  Ym(b, a);
+  return b
 }
-function sn() {
-  var a = Tg(["\ufdd0'lineNumbers", "\ufdd0'mode", "\ufdd0'tabMode"], {"\ufdd0'lineNumbers":j, "\ufdd0'mode":Tg(["\ufdd0'name"], {"\ufdd0'name":"stex"}), "\ufdd0'tabMode":"indent"}), b = zm(Y(["\ufdd0'textarea#latex-markup", "put some latex here to see it pretty printed"]));
-  $(qn).appendChild($(b));
-  CodeMirror.fromTextArea(b, lj(a));
-  a = zm(Y(["\ufdd0'button#check-grammar", "Check Grammar"]));
-  $(qn).appendChild($(a));
-  return pn.e($(document).querySelector("#check-grammar"), N(["\ufdd0'click", rn], 0))
+function un() {
+  sb(rn).save();
+  return pm.e("/check-grammar", N([Tg(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":tn, "\ufdd0'params":Tg(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":Om()})})], 0))
 }
-var tn = ["latex_grammar_check", "client", "home", "init"], un = da;
-!(tn[0] in un) && un.execScript && un.execScript("var " + tn[0]);
-for(var vn;tn.length && (vn = tn.shift());) {
-  !tn.length && t(sn) ? un[vn] = sn : un = un[vn] ? un[vn] : un[vn] = {}
+function vn() {
+  Ym(Ym(Ym(sn, zm(Y(["\ufdd0'textarea#latex-markup", "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))), zm(Y(["\ufdd0'button#check-grammar", "Check Grammar"]))), zm(Y(["\ufdd0'lu#check-grammar-result"])));
+  var a;
+  a = $(document).querySelector("#latex-markup");
+  a = CodeMirror.fromTextArea(a, lj(Tg(["\ufdd0'lineNumbers", "\ufdd0'mode", "\ufdd0'tabMode"], {"\ufdd0'lineNumbers":j, "\ufdd0'mode":Tg(["\ufdd0'name"], {"\ufdd0'name":"stex"}), "\ufdd0'tabMode":"indent"})));
+  cj(rn, a);
+  return qn.e($(document).querySelector("#check-grammar"), N(["\ufdd0'click", un], 0))
+}
+var wn = ["latex_grammar_check", "client", "home", "init"], xn = da;
+!(wn[0] in xn) && xn.execScript && xn.execScript("var " + wn[0]);
+for(var yn;wn.length && (yn = wn.shift());) {
+  !wn.length && t(vn) ? xn[yn] = vn : xn = xn[yn] ? xn[yn] : xn[yn] = {}
 }
 ;
