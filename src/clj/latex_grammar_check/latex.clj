@@ -35,17 +35,3 @@
        (map #(string/join %))
        (string/join)
        ))
- 
-(extract-text (tokenize "word1\n\\section{Ordinary Text}\nword2"))
-
-(({:node-type :tword, :text "word1", :line 1, :pos 1} {:node-type :twhitespace, :text "\n", :line 1, :pos 6}) 
- [] 
- ({:node-type :twhitespace, :text "\n", :line 2, :pos 24} {:node-type :tword, :text "word2", :line 3, :pos 1}))
- 
-#_(condp instance? token
-                      TWord 
-                      TWhitespace {:text (.getText token) :line (.getLine token) :pos (.getPos token)}
-                      nil)
-  
-;(extract-text (slurp "src/sablecc/sample.tex"))
- 

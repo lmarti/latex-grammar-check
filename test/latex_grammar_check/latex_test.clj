@@ -10,11 +10,11 @@
 
 (run-tests)
 
-(println (latex/extract-text (latex/tokenize (slurp "src/sablecc/sample.tex"))))
+;(println (latex/extract-text (latex/tokenize (slurp "src/sablecc/sample.tex"))))
 
-(latex/extract-text "word1\n\\section{Ordinary Text}\nword2")
+;(latex/extract-text "word1\n\\section{Ordinary Text}\nword2")
 
-(latex/extract-text "word1 word2
-                    \\section{Ordinary Text}
-                     word3 word4\n
-                    % sfff")
+;(latex/extract-text "word1 word2
+;                    \\section{Ordinary Text}
+;                     word3 word4\n
+;                    % sfff")
