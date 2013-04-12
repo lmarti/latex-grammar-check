@@ -27,6 +27,11 @@
              {:handler handle-grammar-check-result
               :params  {:latex-markup  (do (.save @editor) (dom/value (sel1 :#latex-markup)))}}))
 
+(defn handle-dumb-check-grammar [e]
+  (ajax/POST "/dumb-check-grammar"
+             {:handler handle-grammar-check-result
+              :params  {:latex-markup  (do (.save @editor) (dom/value (sel1 :#latex-markup)))}}))
+
 (defn handle-extract-text-result [text]
   (.setValue @editor text))
 
@@ -39,6 +44,7 @@
   (-> container
       (append! (template/node [:textarea#latex-markup "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))
       (append! (template/node [:button#check-grammar "Check Grammar"]))
+      (append! (template/node [:button#dumb-check-grammar "Dumb Extract Text"]))
       (append! (template/node [:button#extract-text "Extract Text"]))
       (append! (template/node [:lu#check-grammar-result])))
   (reset! editor (create-editor (sel1 :#latex-markup) {:lineNumbers true
@@ -47,4 +53,5 @@
                                                        :highlightSelectionMatches true
                                                        :styleActiveLine true}))  
   (listen! (sel1 :#check-grammar) :click handle-check-grammar)
+  (listen! (sel1 :#dumb-check-grammar) :click handle-dumb-check-grammar)
   (listen! (sel1 :#extract-text) :click handle-extract-text))

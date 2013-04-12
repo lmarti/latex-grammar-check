@@ -19,6 +19,15 @@
          (bootstrap/edn-response))
     ))
 
+(defn handle-dumb-check-grammar
+  [request]
+  (let [latex-markup (get-in request [:params "latex-markup"])]
+    (log/debug :latex-markup latex-markup)
+    (->> latex-markup
+         (check-grammar)
+         (bootstrap/edn-response))
+    ))
+
 (defn handle-extract-text
   [request]
   (let [latex-markup (get-in request [:params "latex-markup"])]
@@ -39,6 +48,7 @@
      ;; Set default interceptors for /about and any other paths under /
      ^:interceptors [(body-params/body-params)]
      ["/check-grammar" {:post handle-check-grammar}]
+     ["/dumb-check-grammar" {:post handle-dumb-check-grammar}]
      ["/extract-text" {:post handle-extract-text}]]]])
 
 ;; You can use this fn or a per-request fn via io.pedestal.service.http.route/url-for
