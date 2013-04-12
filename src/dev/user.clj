@@ -3,3 +3,5 @@
   (require 'dev)
   (in-ns 'dev)
   #_(dev/start))
+
+;(start)

@@ -14,7 +14,8 @@
 (defn tokenize
   [latex-markup]  
   (let [lexer (LatexLexer. (PushbackReader. (StringReader. latex-markup) 4096))]
-    (loop [token (.next lexer) result []]
+    (loop [token (.next lexer) 
+           result []]
       (if (eof? token) 
         result
         (recur (.next lexer) 
@@ -23,15 +24,25 @@
                              :line (.getLine token) 
                              :pos (.getPos token)}))))))
 
-(defn- word? [token]
+(defn word? [token]
   (or (= (:node-type token) :twhitespace)
       (= (:node-type token) :tword)))
 
+(defn comment? [token]
+  (= (:node-type token) :tcommentline))
+
+;(defn add-extract-text-meta [tokens]
+;  (reduce (fn [[result line] {:keys [text] :as token}]
+;             (let [new-result (conj result (assoc token :new-line line))
+;                   new-line (+ line (count (filter (partial = \newline) text)))]
+;               [new-result new-line]))
+;          [[] 1]
+;          tokens))
+
 (defn extract-text [tokens]
-  (->> tokens
-       (partition-by word?)
-       (map #(if (word? (first %)) (concat %) []))
-       (map #(map :text %))
-       (map #(string/join %))
-       (string/join)
-       ))
+  (let [text (->> tokens
+                  (filter #(or (word? %) (comment? %)))
+                  (map #(if (word? %) (:text %) "\n"))
+                  (string/join))]
+    (println text)
+    text))

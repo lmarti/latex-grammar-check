@@ -12,7 +12,10 @@
   [request]
   (let [latex-markup (get-in request [:params "latex-markup"])]
     (log/debug :latex-markup latex-markup)
-    (->> (check-grammar latex-markup)
+    (->> latex-markup
+         (tokenize)
+         (extract-text)
+         (check-grammar)
          (bootstrap/edn-response))
     ))
 
