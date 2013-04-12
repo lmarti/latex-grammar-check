@@ -44,5 +44,4 @@
                   (filter #(or (word? %) (comment? %)))
                   (map #(if (word? %) (:text %) "\n"))
                   (string/join))]
-    (println text)
     text))
