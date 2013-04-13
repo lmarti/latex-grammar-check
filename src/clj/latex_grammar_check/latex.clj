@@ -31,17 +31,16 @@
 (defn comment? [token]
   (= (:node-type token) :tcommentline))
 
-;(defn add-extract-text-meta [tokens]
-;  (reduce (fn [[result line] {:keys [text] :as token}]
-;             (let [new-result (conj result (assoc token :new-line line))
-;                   new-line (+ line (count (filter (partial = \newline) text)))]
-;               [new-result new-line]))
-;          [[] 1]
-;          tokens))
+(defn repeat-string [n s]
+  (apply str (repeat n s)))
 
 (defn extract-text [tokens]
   (let [text (->> tokens
                   (filter #(or (word? %) (comment? %)))
-                  (map #(if (word? %) (:text %) "\n"))
+                  (map #(if (word? %) (:text %) %))
+                  (map #(if (comment? %) "\n" %))
+                  (map #(if-not (string? %) 
+                          (repeat-string (count (:text %)) " ") 
+                          %))
                   (string/join))]
     text))

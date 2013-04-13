@@ -5,7 +5,7 @@
             [io.pedestal.service.http.route.definition :refer [defroutes]]
             [ring.util.response :as ring-resp]
             [io.pedestal.service.log :as log]
-            [latex-grammar-check.util :refer [check-grammar]]
+            [latex-grammar-check.language-tool :refer [check-grammar]]
             [latex-grammar-check.latex :refer [extract-text tokenize]]))
 
 (defn handle-check-grammar

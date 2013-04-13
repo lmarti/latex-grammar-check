@@ -1,6 +1,12 @@
 TODO
 
-- deal with column number issue
-- get language-tool to ignore this error "Possible typo: you repeated a whitespace"  (the langtool api supports this)
+April 10, 2013
 - display error message and recomendations on mouse over
 - also display error message and recomendations on the gutter
+
+DONE
+
+April 13, 2013
+-X deal with column number issue
+-X get language-tool to ignore this error "Possible typo: you repeated a whitespace"  (the langtool api supports this)
+
