@@ -1,4 +1,4 @@
-(ns latex-grammar-check.util
+(ns latex-grammar-check.language-tool
   (:import [org.languagetool JLanguageTool]
            [org.languagetool.language BritishEnglish]))
 
