@@ -14,12 +14,10 @@
 (def container (sel1 :#container))
 
 (defn handle-grammar-check-result [coll]
-  ;;TBD: clean all marks before creating new ones
   (replace-contents! (sel1 :#check-grammar-result)
                      (map #(template/node [:li (:message %)]) coll))
   
-  (doseq [mark @grammar-check-marks] 
-    (.clear mark))
+  (doseq [mark @grammar-check-marks] (.clear mark))
   (reset! grammar-check-marks [])
   
   ;(.setGutterMarker @editor 1 "grammar-checker-problem-gutter" (template/node [:span "x"]))
@@ -30,8 +28,7 @@
           to {:line end-line :ch (dec end-column)}
           element (template/node [:span {:classes ["grammar-checker-problem"]} (.getRange @editor (clj->js from) (clj->js to))])]
       (->> (cm/mark-text @editor from to
-                         {;:className "grammar-checker-problem"
-                          :clearOnEnter true
+                         {:clearOnEnter true
                           :replacedWith element
                           })
            (swap! grammar-check-marks conj))
