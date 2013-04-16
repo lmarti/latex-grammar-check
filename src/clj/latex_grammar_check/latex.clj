@@ -7,10 +7,6 @@
 (defn eof? [token]
   (instance? EOF token))
   
-;AG: improved structure
-;  "- group text from all the tokens of type TWhitespace and TWord
-;   - start a new group when a token of a type other than TWhitespace and TWord is found"
-
 (defn tokenize
   [latex-markup]  
   (let [lexer (LatexLexer. (PushbackReader. (StringReader. latex-markup) 4096))]

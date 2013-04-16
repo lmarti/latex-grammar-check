@@ -4,6 +4,15 @@
   background-position: bottom;
   background-repeat: repeat-x;
 }
-.CodeMirror-activeline-background {background: #e8f2ff !important;}
+.CodeMirror-activeline-background {
+  background: #e8f2ff !important;
+}
 
-.Grammar-Checker-Problem {color: red;}
+.grammar-checker-problem {
+  /*color: red;*/
+  background: #FFE6FF;
+}
+
+.grammar-checker-problem-gutter {
+  width: 10px;
+}
