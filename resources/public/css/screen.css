@@ -8,11 +8,29 @@
   background: #e8f2ff !important;
 }
 
+.grammar-checker-problem-gutter {
+  width: 10px;
+  position: relative;
+}
+
 .grammar-checker-problem {
   /*color: red;*/
   background: #FFE6FF;
 }
 
-.grammar-checker-problem-gutter {
-  width: 10px;
+
+.grammar-checker-problem span {
+  display: block; 
+  position: absolute; 
+  margin-top: 10px; 
+  margin-left: -10px; 
+  width: 175px; padding: 5px; 
+  z-index: 100; 
+  color: #000000; 
+  background: #FFFFAA; 
+  font: 12px "Arial", sans-serif;
+  text-align: left; 
+  text-decoration: none;
 }
+
+

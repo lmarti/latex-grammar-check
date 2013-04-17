@@ -2,8 +2,9 @@ TODO
 
 April 10, 2013
 - display error message and recomendations on mouse over
-- also display error message and recomendations on the gutter
+- also display error message and recomendations on the gutter (use icons from font-awesome)
 - drop down for languages
+- support to Ignore error / Ignore all errors of this type
 
 DONE
 
