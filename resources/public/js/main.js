@@ -215,9 +215,9 @@ function Ka(a, b) {
     if("%" == u) {
       return"%"
     }
-    var E = c.shift();
-    "undefined" == typeof E && e(Error("[goog.string.format] Not enough arguments"));
-    arguments[0] = E;
+    var F = c.shift();
+    "undefined" == typeof F && e(Error("[goog.string.format] Not enough arguments"));
+    arguments[0] = F;
     return La.oa[u].apply(l, arguments)
   })
 }
@@ -464,13 +464,13 @@ function qb(a) {
   return b.call(l, a)
 }
 var rb = {};
-function G(a) {
+function E(a) {
   if(a ? a.Cb : a) {
     return a.Cb(a)
   }
   var b;
-  var c = G[s(a == l ? l : a)];
-  c ? b = c : (c = G._) ? b = c : e(z("IDeref.-deref", a));
+  var c = E[s(a == l ? l : a)];
+  c ? b = c : (c = E._) ? b = c : e(z("IDeref.-deref", a));
   return b.call(l, a)
 }
 var sb = {};
@@ -2437,51 +2437,51 @@ function Ye(a, b, c) {
   if(9 === b) {
     return a.Qb ? a.Qb(c, d, f, g, i, a, j, q, u) : a.Qb ? a.Qb(c, d, f, g, i, a, j, q, u) : a.call(l, c, d, f, g, i, a, j, q, u)
   }
-  var w = B(y), E = C(y);
+  var w = B(y), F = C(y);
   if(10 === b) {
     return a.Eb ? a.Eb(c, d, f, g, i, a, j, q, u, w) : a.Eb ? a.Eb(c, d, f, g, i, a, j, q, u, w) : a.call(l, c, d, f, g, i, a, j, q, u, w)
   }
-  var y = B(E), F = C(E);
+  var y = B(F), G = C(F);
   if(11 === b) {
     return a.Fb ? a.Fb(c, d, f, g, i, a, j, q, u, w, y) : a.Fb ? a.Fb(c, d, f, g, i, a, j, q, u, w, y) : a.call(l, c, d, f, g, i, a, j, q, u, w, y)
   }
-  var E = B(F), P = C(F);
+  var F = B(G), P = C(G);
   if(12 === b) {
-    return a.Gb ? a.Gb(c, d, f, g, i, a, j, q, u, w, y, E) : a.Gb ? a.Gb(c, d, f, g, i, a, j, q, u, w, y, E) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E)
+    return a.Gb ? a.Gb(c, d, f, g, i, a, j, q, u, w, y, F) : a.Gb ? a.Gb(c, d, f, g, i, a, j, q, u, w, y, F) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F)
   }
-  var F = B(P), O = C(P);
+  var G = B(P), O = C(P);
   if(13 === b) {
-    return a.Hb ? a.Hb(c, d, f, g, i, a, j, q, u, w, y, E, F) : a.Hb ? a.Hb(c, d, f, g, i, a, j, q, u, w, y, E, F) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F)
+    return a.Hb ? a.Hb(c, d, f, g, i, a, j, q, u, w, y, F, G) : a.Hb ? a.Hb(c, d, f, g, i, a, j, q, u, w, y, F, G) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G)
   }
   var P = B(O), ea = C(O);
   if(14 === b) {
-    return a.Ib ? a.Ib(c, d, f, g, i, a, j, q, u, w, y, E, F, P) : a.Ib ? a.Ib(c, d, f, g, i, a, j, q, u, w, y, E, F, P) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P)
+    return a.Ib ? a.Ib(c, d, f, g, i, a, j, q, u, w, y, F, G, P) : a.Ib ? a.Ib(c, d, f, g, i, a, j, q, u, w, y, F, G, P) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P)
   }
   var O = B(ea), Ma = C(ea);
   if(15 === b) {
-    return a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O) : a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O)
+    return a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O) : a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O)
   }
   var ea = B(Ma), Ua = C(Ma);
   if(16 === b) {
-    return a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea) : a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea)
+    return a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea) : a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea)
   }
   var Ma = B(Ua), Hb = C(Ua);
   if(17 === b) {
-    return a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma) : a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma)
+    return a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma) : a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma)
   }
   var Ua = B(Hb), Vd = C(Hb);
   if(18 === b) {
-    return a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua) : a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua)
+    return a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua) : a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua)
   }
   Hb = B(Vd);
   Vd = C(Vd);
   if(19 === b) {
-    return a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb) : a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb)
+    return a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb) : a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb)
   }
   var ig = B(Vd);
   C(Vd);
   if(20 === b) {
-    return a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb, ig) : a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb, ig) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb, ig)
+    return a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb, ig) : a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb, ig) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb, ig)
   }
   e(Error("Only up to 20 arguments supported on functions"))
 }
@@ -5044,9 +5044,9 @@ function vi(a, b, c, d) {
           return Lc.a(a, b.b ? b.b(g) : b.call(l, g))
         }, qg, i);
       case 2:
-        var E = a, F = b;
+        var F = a, G = b;
         return Cd.c(function(a, b) {
-          return Lc.a(a, b.a ? b.a(E, F) : b.call(l, E, F))
+          return Lc.a(a, b.a ? b.a(F, G) : b.call(l, F, G))
         }, qg, i);
       case 3:
         var P = a, O = b, ea = c;
@@ -5657,7 +5657,7 @@ bj.O = fj;
 bj.e = hj.e;
 aj = bj;
 function nc(a) {
-  return G(a)
+  return E(a)
 }
 function ij(a) {
   if(a ? a.Kc : a) {
@@ -5761,11 +5761,11 @@ var oj = l, oj = function(a, b) {
                 for(w in a) {
                   u.call(h, 0, w)
                 }
-                b = Rf(b, function E(b) {
+                b = Rf(b, function F(b) {
                   return new X(l, m, function() {
                     for(;;) {
                       var c = I(b);
-                      return c ? (c = J(c), T(Y([d.b ? d.b(c) : d.call(l, c), g(a[c])]), E(K(b)))) : l
+                      return c ? (c = J(c), T(Y([d.b ? d.b(c) : d.call(l, c), g(a[c])]), F(K(b)))) : l
                     }
                   }, l)
                 }(c))
@@ -5982,12 +5982,12 @@ function Jj(a, b, c) {
   this.ib = c
 }
 Jj.prototype.pc = function() {
-  if(hd(G(this.ib))) {
-    var a = G(this.yc);
+  if(hd(E(this.ib))) {
+    var a = E(this.yc);
     aj.a(this.yc, ic);
     return this.ba[a]
   }
-  a = G(this.ib);
+  a = E(this.ib);
   aj.a(this.ib, K);
   return J(a)
 };
@@ -6279,8 +6279,8 @@ xk = function(a) {
       return N.a(a, "-") ? "-1" : "1"
     }]), b)), w = V.c(u, 0, l);
     V.c(w, 0, l);
-    var b = V.c(w, 1, l), q = V.c(w, 2, l), y = V.c(w, 3, l), E = V.c(w, 4, l), F = V.c(w, 5, l), P = V.c(w, 6, l), w = V.c(w, 7, l), O = V.c(u, 1, l), u = V.c(O, 0, l), ea = V.c(O, 1, l), O = V.c(O, 2, l);
-    return Y([Pa(a) ? 1970 : b, Pa(d) ? 1 : zk(1, q, 12, "timestamp month field must be in range 1..12"), Pa(f) ? 1 : zk(1, y, uk.a ? uk.a(q, tk(b)) : uk.call(l, q, tk(b)), "timestamp day field must be in range 1..last day in month"), Pa(g) ? 0 : zk(0, E, 23, "timestamp hour field must be in range 0..23"), Pa(i) ? 0 : zk(0, F, 59, "timestamp minute field must be in range 0..59"), Pa(j) ? 0 : zk(0, P, N.a(F, 59) ? 60 : 59, "timestamp second field must be in range 0..60"), Pa(c) ? 0 : zk(0, w, 999, 
+    var b = V.c(w, 1, l), q = V.c(w, 2, l), y = V.c(w, 3, l), F = V.c(w, 4, l), G = V.c(w, 5, l), P = V.c(w, 6, l), w = V.c(w, 7, l), O = V.c(u, 1, l), u = V.c(O, 0, l), ea = V.c(O, 1, l), O = V.c(O, 2, l);
+    return Y([Pa(a) ? 1970 : b, Pa(d) ? 1 : zk(1, q, 12, "timestamp month field must be in range 1..12"), Pa(f) ? 1 : zk(1, y, uk.a ? uk.a(q, tk(b)) : uk.call(l, q, tk(b)), "timestamp day field must be in range 1..last day in month"), Pa(g) ? 0 : zk(0, F, 23, "timestamp hour field must be in range 0..23"), Pa(i) ? 0 : zk(0, G, 59, "timestamp minute field must be in range 0..59"), Pa(j) ? 0 : zk(0, P, N.a(G, 59) ? 60 : 59, "timestamp second field must be in range 0..60"), Pa(c) ? 0 : zk(0, w, 999, 
     "timestamp millisecond field must be in range 0..999"), u * (60 * ea + O)])
   }
   return l
@@ -6305,8 +6305,8 @@ var Ak = Vi.b(Z(["inst", "uuid", "queue"], {inst:function(a) {
   return md(a) ? Rf(Eg, a) : Mj.e(l, Q(["Queue literal expects a vector for its elements."], 0))
 }}));
 function ek(a, b) {
-  var c = lk(a, b), d = D.c(G(Ak), mi(c), l);
-  return v(d) ? d.b ? d.b(ak(a, k, l)) : d.call(l, ak(a, k, l)) : Mj.e(a, Q(["Could not find tag parser for ", mi(c), " in ", U.e(Q([ai(G(Ak))], 0))], 0))
+  var c = lk(a, b), d = D.c(E(Ak), mi(c), l);
+  return v(d) ? d.b ? d.b(ak(a, k, l)) : d.call(l, ak(a, k, l)) : Mj.e(a, Q(["Could not find tag parser for ", mi(c), " in ", U.e(Q([ai(E(Ak))], 0))], 0))
 }
 ;function Bk(a) {
   if("function" == typeof a.qa) {
@@ -6695,19 +6695,19 @@ function ol(a, b) {
     g = k;
     try {
       if(j) {
-        for(var y = [], E = u.currentTarget;E;E = E.parentNode) {
-          y.push(E)
+        for(var y = [], F = u.currentTarget;F;F = F.parentNode) {
+          y.push(F)
         }
         i = f[k];
         i.ha = i.z;
-        for(var F = y.length - 1;!u.Ta && 0 <= F && i.ha;F--) {
-          u.currentTarget = y[F], g &= sl(i, y[F], d, k, u)
+        for(var G = y.length - 1;!u.Ta && 0 <= G && i.ha;G--) {
+          u.currentTarget = y[G], g &= sl(i, y[G], d, k, u)
         }
         if(q) {
           i = f[m];
           i.ha = i.z;
-          for(F = 0;!u.Ta && F < y.length && i.ha;F++) {
-            u.currentTarget = y[F], g &= sl(i, y[F], d, m, u)
+          for(G = 0;!u.Ta && G < y.length && i.ha;G++) {
+            u.currentTarget = y[G], g &= sl(i, y[G], d, m, u)
           }
         }
       }else {
@@ -7109,14 +7109,14 @@ Kl.prototype.Qc = function(a, b, c) {
         }
         try {
           u = c.fileName || c.filename || c.sourceURL || j
-        }catch(E) {
+        }catch(F) {
           u = "Not available", w = k
         }
         i = w || !c.lineNumber || !c.fileName || !c.stack ? {message:c.message, name:c.name, lineNumber:q, fileName:u, stack:c.stack || "Not available"} : c
       }
       f = "Message: " + ta(i.message) + '\nUrl: <a href="view-source:' + i.fileName + '" target="_new">' + i.fileName + "</a>\nLine: " + i.lineNumber + "\n\nBrowser stack:\n" + ta(i.stack + "-> ") + "[end]\n\nJS stack traversal:\n" + ta(El(g) + "-> ")
-    }catch(F) {
-      f = "Exception trying to expose exception! You win, we lose. " + F
+    }catch(G) {
+      f = "Exception trying to expose exception! You win, we lose. " + G
     }
     d.uc = f
   }
@@ -7823,19 +7823,19 @@ function rn(a, b) {
 }
 function sn(a) {
   return function(b) {
-    var c = qj(G(a).find()), d = qd(c) ? S.a(ec, c) : c, c = D.c(d, "from", l), d = D.c(d, "to", l);
-    return Am.o ? Am.o(G(on), b, c, d) : Am.call(l, G(on), b, c, d)
+    var c = qj(E(a).find()), d = qd(c) ? S.a(ec, c) : c, c = D.c(d, "from", l), d = D.c(d, "to", l);
+    return Am.o ? Am.o(E(on), b, c, d) : Am.call(l, E(on), b, c, d)
   }
 }
 function tn(a) {
-  var b = $(document).querySelector("#check-grammar-result"), c = rf.a(function(a) {
-    return Km(Y(["\ufdd0'li", (new ue("\ufdd0'message")).call(l, a)]))
-  }, a), b = $(b);
+  var b = $(document).querySelector("#check-grammar-result"), c = Km(Y(["\ufdd0'tbody", rf.a(function(a) {
+    return Km(Y(["\ufdd0'tr", Y(["\ufdd0'td", "" + W((new ue("\ufdd0'line")).call(l, a))]), Y(["\ufdd0'td", (new ue("\ufdd0'message")).call(l, a)])]))
+  }, a)])), b = $(b);
   b.innerHTML = "";
   Vm(b, c);
-  for(c = I(G(pn));;) {
+  for(c = I(E(pn));;) {
     if(c) {
-      b = J(c), ym.a ? ym.a(G(on), b) : ym.call(l, G(on), b), c = M(c)
+      b = J(c), ym.a ? ym.a(E(on), b) : ym.call(l, E(on), b), c = M(c)
     }else {
       break
     }
@@ -7843,19 +7843,19 @@ function tn(a) {
   $i(pn, qg);
   for(a = I(a);;) {
     if(a) {
-      var b = c = J(a), d = qd(b) ? S.a(ec, b) : b, f = D.c(d, "\ufdd0'suggested-replacements", l), g = D.c(d, "\ufdd0'message", l), i = D.c(d, "\ufdd0'end-column", l), j = D.c(d, "\ufdd0'end-line", l), q = D.c(d, "\ufdd0'column", l), u = D.c(d, "\ufdd0'line", l), w = Z(["\ufdd0'line", "\ufdd0'ch"], {"\ufdd0'line":u, "\ufdd0'ch":q - 1}), y = Z(["\ufdd0'line", "\ufdd0'ch"], {"\ufdd0'line":j, "\ufdd0'ch":i - 1}), E = zm.c ? zm.c(G(on), w, y) : zm.call(l, G(on), w, y), F = Vi.b(l), P = Km(rn(f, sn(F))), 
-      O = Km(Y(["\ufdd0'span", Z(["\ufdd0'classes"], {"\ufdd0'classes":Y(["grammar-checker-problem"])}), E, P]));
-      aj.c(pn, Lc, $i(F, xm.o ? xm.o(G(on), w, y, Z(["\ufdd0'clearOnEnter", "\ufdd0'replacedWith"], {"\ufdd0'clearOnEnter":k, "\ufdd0'replacedWith":O})) : xm.call(l, G(on), w, y, Z(["\ufdd0'clearOnEnter", "\ufdd0'replacedWith"], {"\ufdd0'clearOnEnter":k, "\ufdd0'replacedWith":O}))));
-      nn.e(O, Q(["\ufdd0'mouseover", function(a, b, c, d, f, g, i, j, q, u, w, y, E, F) {
+      var b = c = J(a), d = qd(b) ? S.a(ec, b) : b, f = D.c(d, "\ufdd0'suggested-replacements", l), g = D.c(d, "\ufdd0'message", l), i = D.c(d, "\ufdd0'end-column", l), j = D.c(d, "\ufdd0'end-line", l), q = D.c(d, "\ufdd0'column", l), u = D.c(d, "\ufdd0'line", l), w = Z(["\ufdd0'line", "\ufdd0'ch"], {"\ufdd0'line":u, "\ufdd0'ch":q - 1}), y = Z(["\ufdd0'line", "\ufdd0'ch"], {"\ufdd0'line":j, "\ufdd0'ch":i - 1}), F = zm.c ? zm.c(E(on), w, y) : zm.call(l, E(on), w, y), G = Vi.b(l), P = Km(rn(f, sn(G))), 
+      O = Km(Y(["\ufdd0'span", Z(["\ufdd0'classes"], {"\ufdd0'classes":Y(["grammar-checker-problem"])}), F, P]));
+      aj.c(pn, Lc, $i(G, xm.o ? xm.o(E(on), w, y, Z(["\ufdd0'clearOnEnter", "\ufdd0'replacedWith"], {"\ufdd0'clearOnEnter":k, "\ufdd0'replacedWith":O})) : xm.call(l, E(on), w, y, Z(["\ufdd0'clearOnEnter", "\ufdd0'replacedWith"], {"\ufdd0'clearOnEnter":k, "\ufdd0'replacedWith":O}))));
+      nn.e(O, Q(["\ufdd0'mouseover", function(a, b, c, d, f, g, i, j, q, u, w, y, F, G) {
         return function() {
-          return Dj.a(F, k)
+          return Dj.a(G, k)
         }
-      }(a, b, d, f, g, i, j, q, u, w, y, E, F, P, O, c)], 0));
-      nn.e(O, Q(["\ufdd0'mouseout", function(a, b, c, d, f, g, i, j, q, u, w, y, F, E) {
+      }(a, b, d, f, g, i, j, q, u, w, y, F, G, P, O, c)], 0));
+      nn.e(O, Q(["\ufdd0'mouseout", function(a, b, c, d, f, g, i, j, q, u, w, y, G, F) {
         return function() {
-          return Dj.a(E, m)
+          return Dj.a(F, m)
         }
-      }(a, b, d, f, g, i, j, q, u, w, y, E, F, P, O, c)], 0));
+      }(a, b, d, f, g, i, j, q, u, w, y, F, G, P, O, c)], 0));
       a = M(a)
     }else {
       return l
@@ -7863,22 +7863,23 @@ function tn(a) {
   }
 }
 function un() {
-  wm.b ? wm.b(G(on)) : wm.call(l, G(on));
-  return qm.e("/check-grammar", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":tn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(G(on)) : sm.call(l, G(on))})})], 0))
+  wm.b ? wm.b(E(on)) : wm.call(l, E(on));
+  return qm.e("/check-grammar", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":tn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(E(on)) : sm.call(l, E(on))})})], 0))
 }
 function vn() {
-  wm.b ? wm.b(G(on)) : wm.call(l, G(on));
-  return qm.e("/dumb-check-grammar", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":tn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(G(on)) : sm.call(l, G(on))})})], 0))
+  wm.b ? wm.b(E(on)) : wm.call(l, E(on));
+  return qm.e("/dumb-check-grammar", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":tn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(E(on)) : sm.call(l, E(on))})})], 0))
 }
 function wn(a) {
-  return vm.a ? vm.a(G(on), a) : vm.call(l, G(on), a)
+  return vm.a ? vm.a(E(on), a) : vm.call(l, E(on), a)
 }
 function xn() {
-  wm.b ? wm.b(G(on)) : wm.call(l, G(on));
-  return qm.e("/extract-text", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":wn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(G(on)) : sm.call(l, G(on))})})], 0))
+  wm.b ? wm.b(E(on)) : wm.call(l, E(on));
+  return qm.e("/extract-text", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":wn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(E(on)) : sm.call(l, E(on))})})], 0))
 }
 function yn() {
-  Vm(Vm(Vm(qn, Km(Y(["\ufdd0'textarea#latex-markup", "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))), Km(Y(["\ufdd0'div#buttons.text-center", Km(Y(["\ufdd0'div#buttons.btn-group", Km(Y(["\ufdd0'a#check-grammar.btn", Km(Y(["\ufdd0'i.icon-check"])), Km(Y(["\ufdd0'span", " Check Grammar"]))])), Km(Y(["\ufdd0'a#dumb-check-grammar.btn", "Dumb Check Grammar"])), Km(Y(["\ufdd0'a#extract-text.btn", "Extract Text"]))]))]))), Km(Y(["\ufdd0'lu#check-grammar-result"])));
+  Vm(Vm(Vm(qn, Km(Y(["\ufdd0'textarea#latex-markup", "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))), Km(Y(["\ufdd0'div#buttons.text-center", Km(Y(["\ufdd0'div#buttons.btn-group", Km(Y(["\ufdd0'a#check-grammar.btn", Km(Y(["\ufdd0'i.icon-check"])), Km(Y(["\ufdd0'span", " Check Grammar"]))])), Km(Y(["\ufdd0'a#dumb-check-grammar.btn", "Dumb Check Grammar"])), Km(Y(["\ufdd0'a#extract-text.btn", "Extract Text"]))]))]))), Km(Y(["\ufdd0'table#check-grammar-result", Z(["\ufdd0'class"], 
+  {"\ufdd0'class":"table table-condensed table-striped table-hover"})])));
   $i(on, rm.a ? rm.a($(document).querySelector("#latex-markup"), Z(["\ufdd0'lineNumbers", "\ufdd0'mode", "\ufdd0'tabMode", "\ufdd0'highlightSelectionMatches", "\ufdd0'gutters"], {"\ufdd0'lineNumbers":k, "\ufdd0'mode":Z(["\ufdd0'name"], {"\ufdd0'name":"stex"}), "\ufdd0'tabMode":"indent", "\ufdd0'highlightSelectionMatches":k, "\ufdd0'gutters":Y(["grammar-checker-problem-gutter"])})) : rm.call(l, $(document).querySelector("#latex-markup"), Z(["\ufdd0'lineNumbers", "\ufdd0'mode", "\ufdd0'tabMode", "\ufdd0'highlightSelectionMatches", 
   "\ufdd0'gutters"], {"\ufdd0'lineNumbers":k, "\ufdd0'mode":Z(["\ufdd0'name"], {"\ufdd0'name":"stex"}), "\ufdd0'tabMode":"indent", "\ufdd0'highlightSelectionMatches":k, "\ufdd0'gutters":Y(["grammar-checker-problem-gutter"])})));
   nn.e($(document).querySelector("#check-grammar"), Q(["\ufdd0'click", un], 0));
