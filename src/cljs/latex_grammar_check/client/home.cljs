@@ -26,14 +26,14 @@
 
 (defn apply-replacement-fn [mark-atom]
   (fn [replacement]
-    (let [{from "from" to "to"} (js->clj (.find @mark-atom))]
+    (let [{from "from" to "to"} (js->clj (cm/find-mark @mark-atom))]
       (cm/replace-range @editor replacement from to))))
 
 (defn handle-grammar-check-result [coll]
   (replace-contents! (sel1 :#check-grammar-result)
                      (map #(template/node [:li (:message %)]) coll))
   
-  (doseq [mark @grammar-check-marks] (cm/clear-mark @editor mark))
+  (doseq [mark @grammar-check-marks] (cm/clear-mark mark))
   (reset! grammar-check-marks [])
   
   ;(.setGutterMarker @editor 1 "grammar-checker-problem-gutter" (template/node [:span "x"]))

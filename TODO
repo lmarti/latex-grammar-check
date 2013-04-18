@@ -15,18 +15,6 @@
 - Error feedback when the .tex file is not a valid latex for the parser.
 - support to Ignore error / Ignore all errors of this type
 
-
-= DONE =
-
-== April 13, 2013 ==
-
-- deal with column number issue
-- get language-tool to ignore this error "Possible typo: you repeated a whitespace"  (the langtool api supports this)
-
-== April 15, 2013 ==
-
-- clear existing marks before adding new ones
-
 = Main use case =
 
 - A user pastes or uploads a .tex file.
@@ -41,5 +29,14 @@
 - Integration with dropbox and google docs.
 - Possible integration with writelatex.com.
  
+= DONE =
 
+== April 13, 2013 ==
+
+- deal with column number issue
+- get language-tool to ignore this error "Possible typo: you repeated a whitespace"  (the langtool api supports this)
+
+== April 15, 2013 ==
+
+- clear existing marks before adding new ones
 
