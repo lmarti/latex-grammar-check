@@ -24,9 +24,10 @@
 (defn grammar-error [text tooltip]
   [:span {:classes ["grammar-checker-problem"]} text tooltip])
 
-(defn apply-replacement-fn [from to]
+(defn apply-replacement-fn [mark-atom]
   (fn [replacement]
-    (cm/replace-range @editor replacement from to)))
+    (let [{from "from" to "to"} (js->clj (.find @mark-atom))]
+      (cm/replace-range @editor replacement from to))))
 
 (defn handle-grammar-check-result [coll]
   (replace-contents! (sel1 :#check-grammar-result)
@@ -42,12 +43,14 @@
           from {:line line :ch (dec column)}
           to {:line end-line :ch (dec end-column)}
           text (cm/get-range @editor from to)
-          tooltip (template/node (grammar-error-tooltip message suggested-replacements (apply-replacement-fn from to)))
+          mark-atom (atom nil)
+          tooltip (template/node (grammar-error-tooltip message suggested-replacements (apply-replacement-fn mark-atom)))
           element (template/node (grammar-error text tooltip))]
       (->> (cm/mark-text @editor from to
                          {:clearOnEnter true
                           :replacedWith element
                           })
+           (reset! mark-atom)
            (swap! grammar-check-marks conj))
       (listen! element :mouseover #(toggle! tooltip true))
       (listen! element :mouseout #(toggle! tooltip false))
