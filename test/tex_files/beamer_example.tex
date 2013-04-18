@@ -1,0 +1,263 @@
+\documentclass{beamer}
+
+\usecolortheme[named=blue]{structure}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[ball]
+  \setbeamertemplate{theorems}[numbered]
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage{beamerthemesplit}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title
+  [A Simple Presentation using the Beamer Class]
+  {Simple~Presentation~Using~the~Beamer~Class}
+\author[Webster,Gunzburger]{%
+  Clayton~Webster\inst{1} \and
+  Max Gunzburger\inst{2}}
+\institute[Florida State University]{
+  \inst{1}%
+  Department of Mathematics and School for Computational Science\\
+  Florida State University
+  \and
+  \inst{2}%
+  School for Computational Science\\
+  Florida State University}
+\date[DLT 2004]{SIAM Conference, 2004}
+\subject{Computational Sciences}
+
+\pgfdeclaremask{fsu}{fsu_logo}
+\pgfdeclareimage[mask=fsu,width=1cm]{fsu-logo}{fsu_logo}
+
+\logo{\vbox{\vskip0.1cm\hbox{\pgfuseimage{fsu-logo}}}}
+
+\begin{document}
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \titlepage
+  }
+%-----------------------------------------------------------------------------80
+  \section*{Outline}
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \frametitle{Outline of Topics}
+
+    \tableofcontents
+  }
+%-----------------------------------------------------------------------------80
+  \section{Lists}
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \frametitle{"Dynamic" Lists}
+
+    With a few extra marks, you can have Beamer march
+    through each item on a list one at a time.
+  }
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \frametitle{A Sample List}
+
+    \begin{itemize}
+    \item<1-> Normal LaTeX class.
+    \item<2-> Easy overlays.
+    \item<3-> No external programs needed.      
+    \end{itemize}
+  }
+%-----------------------------------------------------------------------------80
+\frame
+{
+  \frametitle{Displayed Text}
+
+  The {\bf{block}} command can be used to highlight a statement.
+  \begin{block}{A famous quote}
+    {\it{``Prime numbers are more than any assigned multitude of prime numbers.''}}\\
+    Euclid
+  \end{block}
+  Because of Aristotle's objections, Euclid did {\bf{not}} say:
+  \begin{block}{}
+    The list of all prime numbers is infinite.
+  \end{block}
+
+}
+%-----------------------------------------------------------------------------80
+\frame
+{
+  \frametitle{Displayed Text}
+
+  The {\bf{theorem}} command can be used for theorems.  If the appropriate
+  beamer environment is set up, the theorems will be numbered.
+  \begin{theorem}
+    {\it{``Prime numbers are more than any assigned multitude of prime numbers.''}}\\
+    Euclid
+  \end{theorem}
+  Because of Aristotle's objections, Euclid did {\bf{not}} say:
+  \begin{theorem}
+    The list of all prime numbers is infinite.
+  \end{theorem}
+
+}
+%-----------------------------------------------------------------------------80
+  \section{Graphics}
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \frametitle{Including Graphics}
+
+    Most graphics files can be converted to {\bf .png} format.
+    Such files are then easily included in your presentation.
+    
+    \begin{tiny}
+    You can change text size with the {\bf{tiny}} environment, for example.
+    \end{tiny}
+  }
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \frametitle{PNG Graphics}
+
+    A graphics file is included by using the {\bf figure} environment,
+    and inside of that the {\bf includegraphics} command.
+    \begin{figure}
+      \scalebox{0.30}
+      {
+        \includegraphics{pengbrew.png}
+      }
+    \end{figure}
+    {\it{In Beamer, when you place a figure in the text, that's where it shows
+    up in the slide.}}  Let's repeat the figure at a smaller size.
+    \begin{figure}
+      \scalebox{0.20}
+      {
+        \includegraphics{pengbrew.png}
+      }
+    \end{figure}
+  }
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \frametitle{PNG Graphics}
+
+    You can also place figures side by side.
+    \begin{figure}
+      \includegraphics[width=0.30\textwidth]{pengbrew.png}
+      \includegraphics[width=0.10\textwidth]{pengbrew.png}
+      \includegraphics[width=0.50\textwidth]{pengbrew.png}
+    \end{figure}
+  }
+%-----------------------------------------------------------------------------80
+ \frame
+  {
+    \frametitle{PNG Graphics}
+
+    Beamer allows you to include mathematical formulas in your presentation
+    as part of your text.  For example, you can use the {\bf{displaymath}}
+    environment:
+    \begin{displaymath}
+      || u^h - u || <= ||u^h - \mathcal{P}^h(u)|| + ||\mathcal{P}^h(u) - u||
+    \end{displaymath}
+  }
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \frametitle{PNG Graphics}
+
+    The previous graphic had a background that almost matched the
+    slide.  A more typical case is shown here.
+    The graphics figure simply shows up as a rectangle imposed on
+    the slide.
+    \begin{figure}
+      \scalebox{0.35}
+      {
+        \includegraphics{bell_206.png}
+      }
+    \end{figure}
+  }
+%-----------------------------------------------------------------------------80
+  \section{Verbatim Text}
+%-----------------------------------------------------------------------------80
+  \begin{frame}[fragile]\
+  {
+    \frametitle{Using Verbatim}
+
+    Sometimes you just want something to show up exactly as you typed it.
+    You can use Latex's {\bf{verbatim}} environment for this.  But a Beamer
+    frame containing the {\bf{verbatim}} command must use a more complicated
+    scheme to begin and end the frame.  The Beamer frame must begin with:
+\begin{verbatim}
+  \begin{frame}[fragile]\
+\end{verbatim}
+and end with an explicit:
+\begin{verbatim}
+  \end{frame}
+\end{verbatim}
+  Look at the source for this slide to see an example.
+  }
+\end{frame}
+%-----------------------------------------------------------------------------80
+  \begin{frame}[fragile]\
+  {
+    \frametitle{Using Semiverbatim}
+
+    Beamer includes a {\bf{semiverbatim}} environment which allows you to
+    place text exactly where you want it, except that you can include a few
+    simple style commands, such as for color.  Such frames must begin and end
+    the same way {\bf{verbatim}} frames do.
+\begin{semiverbatim}
+  Day       Cost  Comment
+  Tuesday   \$7   {\it{Too much!}}
+  Wednesday \$14  {\tiny{I got sick}}
+  Thursday  {\alert{\$45}}  Luckily, I didn't have to pay.
+\end{semiverbatim}
+  }
+\end{frame}
+%-----------------------------------------------------------------------------80
+  \begin{frame}[fragile]\
+  {
+    \frametitle{Using Semiverbatim}
+
+    Semiverbatim is one way to display a sample program, using the
+    {\bf{alert}} command to highlight an important line.   If your program
+    uses curly brackets, you'll have to ``escape'' them within the
+    semiverbatim environment.
+\begin{tiny}
+\begin{semiverbatim}
+  void swap ( int *a, int *b )
+  \{
+    int c; 
+    c = *a;  
+    *a = *b;
+    *b = {\alert{*c}};   <-- {\it{This is where you made the mistake!}}
+    return;
+  \} 
+\end{semiverbatim}
+\end{tiny}
+  }
+\end{frame}
+%-----------------------------------------------------------------------------80
+  \section{Hyperlinks}
+%-----------------------------------------------------------------------------80
+  \frame
+  {
+    \frametitle{Active Hyperlinks}
+
+    Inside of your presentation,  you can use the {\bf{href}} environment
+    to define a hyperlink.  Clicking on the displayed text will then invoke
+    a browser and go to the specified link.
+\vskip 0.1in
+    For example, for more information on the Beamer Class, you can click on
+    \href{https://bitbucket.org/rivanvx/beamer/wiki/Home}{{\alert{the Beamer web site}}}.
+
+  }
+%-----------------------------------------------------------------------------80
+\end{document}
