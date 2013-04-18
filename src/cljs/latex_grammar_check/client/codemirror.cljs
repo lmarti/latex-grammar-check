@@ -19,8 +19,11 @@
             (clj->js to)
             (clj->js options)))
 
-(defn clear-mark [editor mark]
+(defn clear-mark [mark]
   (.clear mark))
+
+(defn find-mark [mark]
+  (.find mark))
 
 (defn get-range [editor from to]
   (.getRange editor (clj->js from) (clj->js to)))
