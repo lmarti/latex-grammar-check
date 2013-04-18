@@ -82,7 +82,7 @@
       (append! (template/node [:textarea#latex-markup "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))
       (append! (template/node [:button#check-grammar "Check Grammar"]))
       (append! (template/node [:button#dumb-check-grammar "Dumb Check Grammar"]))
-      (append! (template/node [:button#extract-text "Extract Text"]))
+      (append! (template/node [:button#extract-text.btn "Extract Text" ]))
       (append! (template/node [:lu#check-grammar-result])))
   (reset! editor (cm/create-editor (sel1 :#latex-markup) {:lineNumbers true
                                                           :mode { :name "stex" }
