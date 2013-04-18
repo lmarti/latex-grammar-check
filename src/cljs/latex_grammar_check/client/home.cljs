@@ -13,16 +13,20 @@
 
 (def container (sel1 :#container))
 
-(defn grammar-error-tooltip [message replacements]
+(defn grammar-error-tooltip [message replacements f]
   [:span {:style {:display "none"}}
    [:lu 
     (for [r replacements]
-     [:li r])]])
+     (let [e (template/node [:li r])]
+       (listen! e :click #(f r))
+       e))]])
 
 (defn grammar-error [text tooltip]
-  [:span {:classes ["grammar-checker-problem"]} 
-   tooltip
-   text])
+  [:span {:classes ["grammar-checker-problem"]} text tooltip])
+
+(defn apply-replacement-fn [from to]
+  (fn [replacement]
+    (cm/replace-range @editor replacement from to)))
 
 (defn handle-grammar-check-result [coll]
   (replace-contents! (sel1 :#check-grammar-result)
@@ -38,7 +42,7 @@
           from {:line line :ch (dec column)}
           to {:line end-line :ch (dec end-column)}
           text (cm/get-range @editor from to)
-          tooltip (template/node (grammar-error-tooltip message suggested-replacements))
+          tooltip (template/node (grammar-error-tooltip message suggested-replacements (apply-replacement-fn from to)))
           element (template/node (grammar-error text tooltip))]
       (->> (cm/mark-text @editor from to
                          {:clearOnEnter true

@@ -16,4 +16,6 @@ CodeMirror.prototype.markText = function(from, to, options) {}
 
 CodeMirror.prototype.getRange = function(from, to, seperator) {}
 
+CodeMirror.prototype.replaceRange = function(replacement, from, to) {}
+
 CodeMirror.TextMarker.prototype.clear = function() {}

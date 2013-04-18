@@ -25,4 +25,8 @@
 (defn get-range [editor from to]
   (.getRange editor (clj->js from) (clj->js to)))
 
+(defn replace-range [editor replacement from to]
+  (.replaceRange editor replacement (clj->js from) (clj->js to)))
+
+
 

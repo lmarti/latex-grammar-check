@@ -10,21 +10,20 @@
 
 .grammar-checker-problem-gutter {
   width: 10px;
-  position: relative;
 }
 
 .grammar-checker-problem {
   /*color: red;*/
   background: #FFE6FF;
+  position: relative;
 }
 
 
 .grammar-checker-problem span {
-  display: block; 
   position: absolute; 
-  margin-top: 10px; 
-  margin-left: -10px; 
-  width: 175px; padding: 5px; 
+  margin-top: 10px;
+  margin-left: -50px; 
+  width: 175px; padding: 2px; 
   z-index: 100; 
   color: #000000; 
   background: #FFFFAA; 
