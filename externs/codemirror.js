@@ -1,9 +1,5 @@
 var CodeMirror = {};
 
-var jQuery = {};
-
-jQuery.prototype.popover = function(elem, options) {}
-
 CodeMirror.fromTextArea = function(textarea, options) {}
 
 CodeMirror.prototype.save = function() {}
