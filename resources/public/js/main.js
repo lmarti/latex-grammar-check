@@ -296,7 +296,7 @@ Sa.a = function(a, b) {
   return Sa.b(b)
 };
 Ra = Sa;
-var Ua = {};
+var Ta = {};
 function Va(a) {
   if(a ? a.B : a) {
     return a.B(a)
@@ -552,13 +552,13 @@ function Db(a) {
   return b.call(l, a)
 }
 var Eb = {}, Fb = {};
-function Hb(a) {
+function Gb(a) {
   if(a ? a.mb : a) {
     return a.mb(a)
   }
   var b;
-  var c = Hb[s(a == l ? l : a)];
-  c ? b = c : (c = Hb._) ? b = c : e(z("IReversible.-rseq", a));
+  var c = Gb[s(a == l ? l : a)];
+  c ? b = c : (c = Gb._) ? b = c : e(z("IReversible.-rseq", a));
   return b.call(l, a)
 }
 var Ib = {};
@@ -816,7 +816,7 @@ Jb["null"] = function() {
   return R.b ? R.b("nil") : R.call(l, "nil")
 };
 pb["null"] = k;
-Ua["null"] = k;
+Ta["null"] = k;
 Va["null"] = p(0);
 qb["null"] = p(l);
 db["null"] = k;
@@ -869,10 +869,10 @@ vb["function"] = function(a, b) {
       };
       Oa.Sb = k;
       Oa.nc = function() {
-        return R.b ? R.b("cljs.core/t3275") : R.call(l, "cljs.core/t3275")
+        return R.b ? R.b("cljs.core/t3278") : R.call(l, "cljs.core/t3278")
       };
       Oa.oc = function(a, b) {
-        return H(b, "cljs.core/t3275")
+        return H(b, "cljs.core/t3278")
       };
       var c = function(a, b) {
         return S.a ? S.a(a.Ca, b) : S.call(l, a.Ca, b)
@@ -909,10 +909,10 @@ vb["function"] = function(a, b) {
       };
       Oa.Sb = k;
       Oa.nc = function() {
-        return R.b ? R.b("cljs.core/t3275") : R.call(l, "cljs.core/t3275")
+        return R.b ? R.b("cljs.core/t3278") : R.call(l, "cljs.core/t3278")
       };
       Oa.oc = function(a, b) {
-        return H(b, "cljs.core/t3275")
+        return H(b, "cljs.core/t3278")
       };
       var c = function(a, b) {
         return S.a ? S.a(a.Ca, b) : S.call(l, a.Ca, b)
@@ -1074,9 +1074,9 @@ rc.o = uc;
 qc = rc;
 function vc(a) {
   if(a) {
-    var b = a.j & 2, a = (b ? b : a.Bb) ? k : a.j ? m : x(Ua, a)
+    var b = a.j & 2, a = (b ? b : a.Bb) ? k : a.j ? m : x(Ta, a)
   }else {
-    a = x(Ua, a)
+    a = x(Ta, a)
   }
   return a
 }
@@ -1211,7 +1211,7 @@ var Kc = l, Kc = function(a, b, c) {
   e(Error("Invalid arity: " + arguments.length))
 };
 A.array = Kc;
-Ua.array = k;
+Ta.array = k;
 Va.array = function(a) {
   return a.length
 };
@@ -1769,7 +1769,7 @@ Ud.c = function(a, b, c) {
   return a.substring(b, c)
 };
 Td = Ud;
-var Vd, Xd = l;
+var Wd, Xd = l;
 function Yd(a) {
   return td(a) ? a : sd(a) ? Kd.e("\ufdd1", Q(["'", Td.a(a, 2)], 0)) : Kd.e("\ufdd1", Q(["'", a], 0))
 }
@@ -1787,7 +1787,7 @@ Xd = function(a, b) {
 };
 Xd.b = Yd;
 Xd.a = Zd;
-Vd = Xd;
+Wd = Xd;
 var $d, ae = l;
 function be(a) {
   return sd(a) ? a : td(a) ? Kd.e("\ufdd0", Q(["'", Td.a(a, 2)], 0)) : Kd.e("\ufdd0", Q(["'", a], 0))
@@ -1928,7 +1928,7 @@ var L = new ie(l);
 function je(a) {
   var b;
   b = a ? ((b = a.j & 134217728) ? b : a.kd) || (a.j ? 0 : x(Fb, a)) : x(Fb, a);
-  return b ? Hb(a) : Cd.c(Lc, L, a)
+  return b ? Gb(a) : Cd.c(Lc, L, a)
 }
 var R, ke = l;
 function le(a) {
@@ -2053,7 +2053,7 @@ var te = l, te = function(a, b, c) {
   e(Error("Invalid arity: " + arguments.length))
 };
 A.string = te;
-Ua.string = k;
+Ta.string = k;
 Va.string = function(a) {
   return a.length
 };
@@ -2461,27 +2461,27 @@ function Ye(a, b, c) {
   if(15 === b) {
     return a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O) : a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O)
   }
-  var ea = B(Ma), Ta = C(Ma);
+  var ea = B(Ma), Ua = C(Ma);
   if(16 === b) {
     return a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea) : a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea)
   }
-  var Ma = B(Ta), Gb = C(Ta);
+  var Ma = B(Ua), Hb = C(Ua);
   if(17 === b) {
     return a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma) : a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma)
   }
-  var Ta = B(Gb), Wd = C(Gb);
+  var Ua = B(Hb), Vd = C(Hb);
   if(18 === b) {
-    return a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta) : a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta)
+    return a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua) : a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua)
   }
-  Gb = B(Wd);
-  Wd = C(Wd);
+  Hb = B(Vd);
+  Vd = C(Vd);
   if(19 === b) {
-    return a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta, Gb) : a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta, Gb) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta, Gb)
+    return a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb) : a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb)
   }
-  var ig = B(Wd);
-  C(Wd);
+  var ig = B(Vd);
+  C(Vd);
   if(20 === b) {
-    return a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta, Gb, ig) : a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta, Gb, ig) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ta, Gb, ig)
+    return a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb, ig) : a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb, ig) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, E, F, P, O, ea, Ma, Ua, Hb, ig)
   }
   e(Error("Only up to 20 arguments supported on functions"))
 }
@@ -6129,9 +6129,9 @@ function kk(a) {
 function lk(a, b) {
   var c = Nj(a, b);
   if(v(-1 != c.indexOf("/"))) {
-    c = Vd.a(Td.c(c, 0, c.indexOf("/")), Td.c(c, c.indexOf("/") + 1, c.length))
+    c = Wd.a(Td.c(c, 0, c.indexOf("/")), Td.c(c, c.indexOf("/") + 1, c.length))
   }else {
-    var d = Vd.b(c), c = "nil" === c ? l : "true" === c ? k : "false" === c ? m : d
+    var d = Wd.b(c), c = "nil" === c ? l : "true" === c ? k : "false" === c ? m : d
   }
   return c
 }
@@ -7274,7 +7274,7 @@ function hm(a) {
           Rl(a.aa, dm(a, "Request complete"));
           a.Ha = m;
           try {
-            var b = jm(a), c;
+            var b = jm(a), c, d;
             a: {
               switch(b) {
                 case 200:
@@ -7288,14 +7288,13 @@ function hm(a) {
                 case 304:
                 ;
                 case 1223:
-                  c = k;
+                  d = k;
                   break a;
                 default:
-                  c = m
+                  d = m
               }
             }
-            var d;
-            if(!(d = c)) {
+            if(!(c = d)) {
               var f;
               if(f = 0 === b) {
                 var g = String(a.Yb).match(xl)[1] || l;
@@ -7304,9 +7303,9 @@ function hm(a) {
                 }
                 f = !cm.test(g ? g.toLowerCase() : "")
               }
-              d = f
+              c = f
             }
-            d ? (a.dispatchEvent("complete"), a.dispatchEvent("success")) : (a.bb = 6, a.cb = km(a) + " [" + jm(a) + "]", fm(a))
+            c ? (a.dispatchEvent("complete"), a.dispatchEvent("success")) : (a.bb = 6, a.cb = km(a) + " [" + jm(a) + "]", fm(a))
           }finally {
             gm(a)
           }
@@ -7879,7 +7878,7 @@ function xn() {
   return qm.e("/extract-text", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":wn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(G(on)) : sm.call(l, G(on))})})], 0))
 }
 function yn() {
-  Vm(Vm(Vm(Vm(Vm(qn, Km(Y(["\ufdd0'textarea#latex-markup", "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))), Km(Y(["\ufdd0'button#check-grammar", "Check Grammar"]))), Km(Y(["\ufdd0'button#dumb-check-grammar", "Dumb Check Grammar"]))), Km(Y(["\ufdd0'button#extract-text", "Extract Text"]))), Km(Y(["\ufdd0'lu#check-grammar-result"])));
+  Vm(Vm(Vm(qn, Km(Y(["\ufdd0'textarea#latex-markup", "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))), Km(Y(["\ufdd0'div#buttons.text-center", Km(Y(["\ufdd0'div#buttons.btn-group", Km(Y(["\ufdd0'a#check-grammar.btn", Km(Y(["\ufdd0'i.icon-check"])), Km(Y(["\ufdd0'span", " Check Grammar"]))])), Km(Y(["\ufdd0'a#dumb-check-grammar.btn", "Dumb Check Grammar"])), Km(Y(["\ufdd0'a#extract-text.btn", "Extract Text"]))]))]))), Km(Y(["\ufdd0'lu#check-grammar-result"])));
   $i(on, rm.a ? rm.a($(document).querySelector("#latex-markup"), Z(["\ufdd0'lineNumbers", "\ufdd0'mode", "\ufdd0'tabMode", "\ufdd0'highlightSelectionMatches", "\ufdd0'gutters"], {"\ufdd0'lineNumbers":k, "\ufdd0'mode":Z(["\ufdd0'name"], {"\ufdd0'name":"stex"}), "\ufdd0'tabMode":"indent", "\ufdd0'highlightSelectionMatches":k, "\ufdd0'gutters":Y(["grammar-checker-problem-gutter"])})) : rm.call(l, $(document).querySelector("#latex-markup"), Z(["\ufdd0'lineNumbers", "\ufdd0'mode", "\ufdd0'tabMode", "\ufdd0'highlightSelectionMatches", 
   "\ufdd0'gutters"], {"\ufdd0'lineNumbers":k, "\ufdd0'mode":Z(["\ufdd0'name"], {"\ufdd0'name":"stex"}), "\ufdd0'tabMode":"indent", "\ufdd0'highlightSelectionMatches":k, "\ufdd0'gutters":Y(["grammar-checker-problem-gutter"])})));
   nn.e($(document).querySelector("#check-grammar"), Q(["\ufdd0'click", un], 0));

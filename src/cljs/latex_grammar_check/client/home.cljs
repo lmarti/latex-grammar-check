@@ -30,8 +30,13 @@
       (cm/replace-range @editor replacement from to))))
 
 (defn handle-grammar-check-result [coll]
+  
+  ; errors are listed as a table with line number and description
   (replace-contents! (sel1 :#check-grammar-result)
-                     (map #(template/node [:li (:message %)]) coll))
+                     ;;[(template/node [:tr  [:td "##"] [:td "Description"]])
+                     (template/node [:tbody 
+                                     (map #(template/node 
+                                            [:tr [:td (str (:line %))] [:td (:message %)]]) coll)]))
   
   (doseq [mark @grammar-check-marks] (cm/clear-mark @editor mark))
   (reset! grammar-check-marks [])
@@ -78,12 +83,18 @@
               :params  {:latex-markup (cm/get-value @editor)}}))
 
 (defn ^:export init []
-  (-> container
+  (-> container 
       (append! (template/node [:textarea#latex-markup "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))
-      (append! (template/node [:button#check-grammar "Check Grammar"]))
-      (append! (template/node [:button#dumb-check-grammar "Dumb Check Grammar"]))
-      (append! (template/node [:button#extract-text.btn "Extract Text" ]))
-      (append! (template/node [:lu#check-grammar-result])))
+      (append! 
+        (template/node [:div#buttons.text-center
+          (template/node [:div#buttons.btn-group
+            (template/node [:a#check-grammar.btn  
+                           (template/node [:i.icon-check ]) 
+                           (template/node [:span  " Check Grammar"])])
+            (template/node [:a#dumb-check-grammar.btn "Dumb Check Grammar"])
+            (template/node [:a#extract-text.btn "Extract Text"])])]))
+      (append! 
+       (template/node [:table#check-grammar-result {:class "table table-condensed table-striped table-hover"}])))
   (reset! editor (cm/create-editor (sel1 :#latex-markup) {:lineNumbers true
                                                           :mode { :name "stex" }
                                                           :tabMode "indent"
