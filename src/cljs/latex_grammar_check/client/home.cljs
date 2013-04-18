@@ -14,7 +14,7 @@
 (def container (sel1 :#container))
 
 (defn grammar-error-tooltip [message replacements f]
-  [:span {:style {:display "none"}}
+  [:span
    [:lu 
     (for [r replacements]
      (let [e (template/node [:li r])]
@@ -22,7 +22,7 @@
        e))]])
 
 (defn grammar-error [text tooltip]
-  [:span {:classes ["grammar-checker-problem"]} text tooltip])
+  [:span {:classes ["grammar-checker-problem"]} text])
 
 (defn apply-replacement-fn [mark-atom]
   (fn [replacement]
@@ -51,14 +51,22 @@
           mark-atom (atom nil)
           tooltip (template/node (grammar-error-tooltip message suggested-replacements (apply-replacement-fn mark-atom)))
           element (template/node (grammar-error text tooltip))]
+      
+      (.popover (js/jQuery element) (clj->js {:title message 
+                                              :content (.-outerHTML tooltip) ;;"<a href='http://www.google.com'>Google</a>"
+                                              :trigger "manual"
+                                              :html true
+                                              :placement "bottom"}))
+      
       (->> (cm/mark-text @editor from to
                          {:clearOnEnter true
                           :replacedWith element
                           })
            (reset! mark-atom)
            (swap! grammar-check-marks conj))
-      (listen! element :mouseover #(toggle! tooltip true))
-      (listen! element :mouseout #(toggle! tooltip false))
+      (listen! element :mouseover #(.popover (js/jQuery element) "show"))
+      ;; add event handler after show :)
+      (listen! element :mouseout #(.popover (js/jQuery element) "hide"))
       )))
 
 (defn handle-check-grammar [e]
