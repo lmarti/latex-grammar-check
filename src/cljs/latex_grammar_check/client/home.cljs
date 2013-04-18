@@ -1,11 +1,11 @@
 (ns latex-grammar-check.client.home
   (:require [dommy.core :refer [listen! replace-contents! append!]]
-            [dommy.attrs :refer [toggle-class! show! hidden?]]
+            [dommy.attrs :refer [toggle-class! hidden? toggle!]]
             [dommy.template :as template]
             [domina :as dom]
             [ajax.core :as ajax]
             [latex-grammar-check.client.codemirror :as cm])
-  (:require-macros [dommy.macros :refer [sel1]]))
+  (:require-macros [dommy.macros :refer [sel1 sel]]))
 
 (def editor (atom nil))
 
@@ -13,26 +13,41 @@
 
 (def container (sel1 :#container))
 
+(defn grammar-error-tooltip [message replacements]
+  [:span {:style {:display "none"}}
+   [:lu 
+    (for [r replacements]
+     [:li r])]])
+
+(defn grammar-error [text tooltip]
+  [:span {:classes ["grammar-checker-problem"]} 
+   tooltip
+   text])
+
 (defn handle-grammar-check-result [coll]
   (replace-contents! (sel1 :#check-grammar-result)
                      (map #(template/node [:li (:message %)]) coll))
   
-  (doseq [mark @grammar-check-marks] (.clear mark))
+  (doseq [mark @grammar-check-marks] (cm/clear-mark @editor mark))
   (reset! grammar-check-marks [])
   
   ;(.setGutterMarker @editor 1 "grammar-checker-problem-gutter" (template/node [:span "x"]))
   
   (doseq [r coll]
-    (let [{:keys [line column end-line end-column]} r
+    (let [{:keys [line column end-line end-column message suggested-replacements]} r
           from {:line line :ch (dec column)}
           to {:line end-line :ch (dec end-column)}
-          element (template/node [:span {:classes ["grammar-checker-problem"]} (.getRange @editor (clj->js from) (clj->js to))])]
+          text (cm/get-range @editor from to)
+          tooltip (template/node (grammar-error-tooltip message suggested-replacements))
+          element (template/node (grammar-error text tooltip))]
       (->> (cm/mark-text @editor from to
                          {:clearOnEnter true
                           :replacedWith element
                           })
            (swap! grammar-check-marks conj))
-      (listen! element :mouseover #(js/alert "Err mouse-over")))))
+      (listen! element :mouseover #(toggle! tooltip true))
+      (listen! element :mouseout #(toggle! tooltip false))
+      )))
 
 (defn handle-check-grammar [e]
   (cm/focus @editor)

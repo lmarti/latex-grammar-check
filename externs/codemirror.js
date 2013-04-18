@@ -14,8 +14,6 @@ CodeMirror.prototype.focus = function() {}
 
 CodeMirror.prototype.markText = function(from, to, options) {}
 
-CodeMirror.prototype.getAllMarks = function() {}
-
 CodeMirror.prototype.getRange = function(from, to, seperator) {}
 
-//CodeMirror.TextMarker.prototype.clear = function() {}
+CodeMirror.TextMarker.prototype.clear = function() {}
