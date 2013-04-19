@@ -14,8 +14,8 @@
 (def container (sel1 :#container))
 
 (defn grammar-error-tooltip [message replacements f]
-  [:span
-   [:lu 
+  [:div
+   [:lu
     (for [r replacements]
      (let [e (template/node [:li r])]
        (listen! e :click #(f r))
@@ -66,7 +66,7 @@
            (swap! grammar-check-marks conj))
       (listen! element :mouseover #(.popover (js/jQuery element) "show"))
       ;; add event handler after show :)
-      (listen! element :mouseout #(.popover (js/jQuery element) "hide"))
+      ;;(listen! element :mouseout #(.popover (js/jQuery element) "hide"))
       )))
 
 (defn handle-check-grammar [e]

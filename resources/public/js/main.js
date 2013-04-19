@@ -215,17 +215,10 @@ function Ka(a, b) {
     if("%" == u) {
       return"%"
     }
-<<<<<<< HEAD
     var B = c.shift();
     "undefined" == typeof B && e(Error("[goog.string.format] Not enough arguments"));
     arguments[0] = B;
     return La.ma[u].apply(l, arguments)
-=======
-    var F = c.shift();
-    "undefined" == typeof F && e(Error("[goog.string.format] Not enough arguments"));
-    arguments[0] = F;
-    return La.oa[u].apply(l, arguments)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   })
 }
 La.ma = {};
@@ -471,7 +464,6 @@ function qb(a) {
   return b.call(l, a)
 }
 var rb = {};
-<<<<<<< HEAD
 function sb(a) {
   if(a ? a.Ab : a) {
     return a.Ab(a)
@@ -479,15 +471,6 @@ function sb(a) {
   var b;
   var c = sb[s(a == l ? l : a)];
   c ? b = c : (c = sb._) ? b = c : e(y("IDeref.-deref", a));
-=======
-function E(a) {
-  if(a ? a.Cb : a) {
-    return a.Cb(a)
-  }
-  var b;
-  var c = E[s(a == l ? l : a)];
-  c ? b = c : (c = E._) ? b = c : e(z("IDeref.-deref", a));
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   return b.call(l, a)
 }
 var tb = {};
@@ -1458,8 +1441,8 @@ function fd(a) {
   return ed.a(a, k)
 }
 function gd(a, b) {
-  var c = ha(a);
-  (c ? b : c) ? (255 < cd && (bd = {}, cd = 0), c = bd[a], c == l && (c = ya(a), bd[a] = c, cd += 1)) : c = Db(a);
+  var c;
+  ((c = ha(a)) ? b : c) ? (255 < cd && (bd = {}, cd = 0), c = bd[a], c == l && (c = ya(a), bd[a] = c, cd += 1)) : c = Db(a);
   return c
 }
 ed = function(a, b) {
@@ -2454,23 +2437,14 @@ function Ye(a, b, c) {
   if(9 === b) {
     return a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u) : a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u) : a.call(l, c, d, f, g, i, a, j, q, u)
   }
-<<<<<<< HEAD
   var w = C(A), B = D(A);
-=======
-  var w = B(y), F = C(y);
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   if(10 === b) {
     return a.Cb ? a.Cb(c, d, f, g, i, a, j, q, u, w) : a.Cb ? a.Cb(c, d, f, g, i, a, j, q, u, w) : a.call(l, c, d, f, g, i, a, j, q, u, w)
   }
-<<<<<<< HEAD
   var A = C(B), E = D(B);
-=======
-  var y = B(F), G = C(F);
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   if(11 === b) {
     return a.Db ? a.Db(c, d, f, g, i, a, j, q, u, w, A) : a.Db ? a.Db(c, d, f, g, i, a, j, q, u, w, A) : a.call(l, c, d, f, g, i, a, j, q, u, w, A)
   }
-<<<<<<< HEAD
   var B = C(E), P = D(E);
   if(12 === b) {
     return a.Eb ? a.Eb(c, d, f, g, i, a, j, q, u, w, A, B) : a.Eb ? a.Eb(c, d, f, g, i, a, j, q, u, w, A, B) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B)
@@ -2478,73 +2452,36 @@ function Ye(a, b, c) {
   var E = C(P), M = D(P);
   if(13 === b) {
     return a.Fb ? a.Fb(c, d, f, g, i, a, j, q, u, w, A, B, E) : a.Fb ? a.Fb(c, d, f, g, i, a, j, q, u, w, A, B, E) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B, E)
-=======
-  var F = B(G), P = C(G);
-  if(12 === b) {
-    return a.Gb ? a.Gb(c, d, f, g, i, a, j, q, u, w, y, F) : a.Gb ? a.Gb(c, d, f, g, i, a, j, q, u, w, y, F) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F)
-  }
-  var G = B(P), O = C(P);
-  if(13 === b) {
-    return a.Hb ? a.Hb(c, d, f, g, i, a, j, q, u, w, y, F, G) : a.Hb ? a.Hb(c, d, f, g, i, a, j, q, u, w, y, F, G) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   var P = C(M), ea = D(M);
   if(14 === b) {
-<<<<<<< HEAD
     return a.Gb ? a.Gb(c, d, f, g, i, a, j, q, u, w, A, B, E, P) : a.Gb ? a.Gb(c, d, f, g, i, a, j, q, u, w, A, B, E, P) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B, E, P)
-=======
-    return a.Ib ? a.Ib(c, d, f, g, i, a, j, q, u, w, y, F, G, P) : a.Ib ? a.Ib(c, d, f, g, i, a, j, q, u, w, y, F, G, P) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   var M = C(ea), Ma = D(ea);
   if(15 === b) {
-<<<<<<< HEAD
     return a.Hb ? a.Hb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M) : a.Hb ? a.Hb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B, E, P, M)
-=======
-    return a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O) : a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   var ea = C(Ma), Ua = D(Ma);
   if(16 === b) {
-<<<<<<< HEAD
     return a.Ib ? a.Ib(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea) : a.Ib ? a.Ib(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea)
-=======
-    return a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea) : a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   var Ma = C(Ua), Hb = D(Ua);
   if(17 === b) {
-<<<<<<< HEAD
     return a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma) : a.Jb ? a.Jb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma)
-=======
-    return a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma) : a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   var Ua = C(Hb), Ud = D(Hb);
   if(18 === b) {
-<<<<<<< HEAD
     return a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua) : a.Kb ? a.Kb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua)
-=======
-    return a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua) : a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   Hb = C(Ud);
   Ud = D(Ud);
   if(19 === b) {
-<<<<<<< HEAD
     return a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua, Hb) : a.Lb ? a.Lb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua, Hb) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua, Hb)
-=======
-    return a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb) : a.Nb ? a.Nb(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   var ig = C(Ud);
   D(Ud);
   if(20 === b) {
-<<<<<<< HEAD
     return a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua, Hb, ig) : a.Mb ? a.Mb(c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua, Hb, ig) : a.call(l, c, d, f, g, i, a, j, q, u, w, A, B, E, P, M, ea, Ma, Ua, Hb, ig)
-=======
-    return a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb, ig) : a.Ob ? a.Ob(c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb, ig) : a.call(l, c, d, f, g, i, a, j, q, u, w, y, F, G, P, O, ea, Ma, Ua, Hb, ig)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   e(Error("Only up to 20 arguments supported on functions"))
 }
@@ -5107,15 +5044,9 @@ function wi(a, b, c, d) {
           return Mc.a(a, b.b ? b.b(g) : b.call(l, g))
         }, qg, i);
       case 2:
-<<<<<<< HEAD
         var B = a, E = b;
         return Cd.c(function(a, b) {
           return Mc.a(a, b.a ? b.a(B, E) : b.call(l, B, E))
-=======
-        var F = a, G = b;
-        return Cd.c(function(a, b) {
-          return Lc.a(a, b.a ? b.a(F, G) : b.call(l, F, G))
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
         }, qg, i);
       case 3:
         var P = a, M = b, ea = c;
@@ -5306,17 +5237,15 @@ function Ri(a) {
     b = ""
   }else {
     var c = new Na, d = new Mi(c);
-    a: {
-      Qi(I(a), d, b);
-      for(a = H(L(a));;) {
-        if(a) {
-          var f = I(a);
-          G(d, " ");
-          Qi(f, d, b);
-          a = L(a)
-        }else {
-          break a
-        }
+    Qi(I(a), d, b);
+    for(a = H(L(a));;) {
+      if(a) {
+        var f = I(a);
+        G(d, " ");
+        Qi(f, d, b);
+        a = L(a)
+      }else {
+        break
       }
     }
     Lb(d);
@@ -5717,7 +5646,6 @@ cj = function(a, b, c, d, f, g) {
   }
   e(Error("Invalid arity: " + arguments.length))
 };
-<<<<<<< HEAD
 cj.n = 5;
 cj.h = ij.h;
 cj.a = dj;
@@ -5732,22 +5660,6 @@ function oc(a) {
 function jj(a) {
   if(a ? a.Fc : a) {
     return a.Fc(a)
-=======
-bj.n = 5;
-bj.h = hj.h;
-bj.a = cj;
-bj.c = dj;
-bj.o = ej;
-bj.O = fj;
-bj.e = hj.e;
-aj = bj;
-function nc(a) {
-  return E(a)
-}
-function ij(a) {
-  if(a ? a.Kc : a) {
-    return a.Kc(a)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   var b;
   var c = jj[s(a == l ? l : a)];
@@ -5847,19 +5759,11 @@ var pj = l, pj = function(a, b) {
                 for(w in a) {
                   u.call(h, 0, w)
                 }
-<<<<<<< HEAD
                 b = Rf(b, function B(b) {
                   return new X(l, m, function() {
                     for(;;) {
                       var c = H(b);
                       return c ? (c = I(c), S(Y([d.b ? d.b(c) : d.call(l, c), g(a[c])]), B(J(b)))) : l
-=======
-                b = Rf(b, function F(b) {
-                  return new X(l, m, function() {
-                    for(;;) {
-                      var c = I(b);
-                      return c ? (c = J(c), T(Y([d.b ? d.b(c) : d.call(l, c), g(a[c])]), F(K(b)))) : l
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
                     }
                   }, l)
                 }(c))
@@ -6339,7 +6243,6 @@ function ok(a, b, c) {
   this.uc = b;
   this.gb = c
 }
-<<<<<<< HEAD
 ok.prototype.lc = function() {
   if(hd(sb(this.gb))) {
     var a = sb(this.uc);
@@ -6349,17 +6252,6 @@ ok.prototype.lc = function() {
   a = sb(this.gb);
   bj.a(this.gb, J);
   return I(a)
-=======
-Jj.prototype.pc = function() {
-  if(hd(E(this.ib))) {
-    var a = E(this.yc);
-    aj.a(this.yc, ic);
-    return this.ba[a]
-  }
-  a = E(this.ib);
-  aj.a(this.ib, K);
-  return J(a)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
 };
 ok.prototype.mc = function(a, b) {
   return bj.a(this.gb, function(a) {
@@ -6649,15 +6541,9 @@ cl = function(a) {
       return N.a(a, "-") ? "-1" : "1"
     }]), b)), w = V.c(u, 0, l);
     V.c(w, 0, l);
-<<<<<<< HEAD
     var b = V.c(w, 1, l), q = V.c(w, 2, l), A = V.c(w, 3, l), B = V.c(w, 4, l), E = V.c(w, 5, l), P = V.c(w, 6, l), w = V.c(w, 7, l), M = V.c(u, 1, l), u = V.c(M, 0, l), ea = V.c(M, 1, l), M = V.c(M, 2, l);
     return Y([Pa(a) ? 1970 : b, Pa(d) ? 1 : el(1, q, 12, "timestamp month field must be in range 1..12"), Pa(f) ? 1 : el(1, A, $k.a ? $k.a(q, Zk(b)) : $k.call(l, q, Zk(b)), "timestamp day field must be in range 1..last day in month"), Pa(g) ? 0 : el(0, B, 23, "timestamp hour field must be in range 0..23"), Pa(i) ? 0 : el(0, E, 59, "timestamp minute field must be in range 0..59"), Pa(j) ? 0 : el(0, P, N.a(E, 59) ? 60 : 59, "timestamp second field must be in range 0..60"), Pa(c) ? 0 : el(0, w, 999, 
     "timestamp millisecond field must be in range 0..999"), u * (60 * ea + M)])
-=======
-    var b = V.c(w, 1, l), q = V.c(w, 2, l), y = V.c(w, 3, l), F = V.c(w, 4, l), G = V.c(w, 5, l), P = V.c(w, 6, l), w = V.c(w, 7, l), O = V.c(u, 1, l), u = V.c(O, 0, l), ea = V.c(O, 1, l), O = V.c(O, 2, l);
-    return Y([Pa(a) ? 1970 : b, Pa(d) ? 1 : zk(1, q, 12, "timestamp month field must be in range 1..12"), Pa(f) ? 1 : zk(1, y, uk.a ? uk.a(q, tk(b)) : uk.call(l, q, tk(b)), "timestamp day field must be in range 1..last day in month"), Pa(g) ? 0 : zk(0, F, 23, "timestamp hour field must be in range 0..23"), Pa(i) ? 0 : zk(0, G, 59, "timestamp minute field must be in range 0..59"), Pa(j) ? 0 : zk(0, P, N.a(G, 59) ? 60 : 59, "timestamp second field must be in range 0..60"), Pa(c) ? 0 : zk(0, w, 999, 
-    "timestamp millisecond field must be in range 0..999"), u * (60 * ea + O)])
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   }
   return l
 };
@@ -6680,7 +6566,6 @@ var fl = Wi.b(Rg(["inst", "uuid", "queue"], {inst:function(a) {
 }, queue:function(a) {
   return md(a) ? Rf(Eg, a) : rk.e(l, O(["Queue literal expects a vector for its elements."], 0))
 }}));
-<<<<<<< HEAD
 function Kk(a, b) {
   var c = Rk(a, b), d = F.c(sb(fl), ni(c), l);
   return v(d) ? d.b ? d.b(Gk(a, k, l)) : d.call(l, Gk(a, k, l)) : rk.e(a, O(["Could not find tag parser for ", ni(c), " in ", T.e(O([bi(sb(fl))], 0))], 0))
@@ -6694,119 +6579,6 @@ var hl = !Sj || gk(), il = Sj && !ek("8");
 Tj && ek("1.9b") || Sj && ek("8") || Rj && ek("9.5") || Uj && ek("528");
 Tj && !ek("8") || Sj && ek("9");
 function jl(a, b) {
-=======
-function ek(a, b) {
-  var c = lk(a, b), d = D.c(E(Ak), mi(c), l);
-  return v(d) ? d.b ? d.b(ak(a, k, l)) : d.call(l, ak(a, k, l)) : Mj.e(a, Q(["Could not find tag parser for ", mi(c), " in ", U.e(Q([ai(E(Ak))], 0))], 0))
-}
-;function Bk(a) {
-  if("function" == typeof a.qa) {
-    return a.qa()
-  }
-  if(ha(a)) {
-    return a.split("")
-  }
-  if(ga(a)) {
-    for(var b = [], c = a.length, d = 0;d < c;d++) {
-      b.push(a[d])
-    }
-    return b
-  }
-  return Ha(a)
-}
-function Ck(a) {
-  if("function" == typeof a.Sa) {
-    return a.Sa()
-  }
-  if("function" != typeof a.qa) {
-    if(ga(a) || ha(a)) {
-      for(var b = [], a = a.length, c = 0;c < a;c++) {
-        b.push(c)
-      }
-      return b
-    }
-    return Ia(a)
-  }
-}
-function Dk(a, b, c) {
-  if("function" == typeof a.forEach) {
-    a.forEach(b, c)
-  }else {
-    if(ga(a) || ha(a)) {
-      Ea(a, b, c)
-    }else {
-      for(var d = Ck(a), f = Bk(a), g = f.length, i = 0;i < g;i++) {
-        b.call(c, f[i], d && d[i], a)
-      }
-    }
-  }
-}
-;var Ek, Fk, Gk, Hk;
-function Ik() {
-  return ca.navigator ? ca.navigator.userAgent : l
-}
-Hk = Gk = Fk = Ek = m;
-var Jk;
-if(Jk = Ik()) {
-  var Kk = ca.navigator;
-  Ek = 0 == Jk.indexOf("Opera");
-  Fk = !Ek && -1 != Jk.indexOf("MSIE");
-  Gk = !Ek && -1 != Jk.indexOf("WebKit");
-  Hk = !Ek && !Gk && "Gecko" == Kk.product
-}
-var Lk = Ek, Mk = Fk, Nk = Hk, Ok = Gk, Pk = ca.navigator, Qk = -1 != (Pk && Pk.platform || "").indexOf("Mac"), Rk;
-a: {
-  var Sk = "", Tk;
-  if(Lk && ca.opera) {
-    var Uk = ca.opera.version, Sk = "function" == typeof Uk ? Uk() : Uk
-  }else {
-    if(Nk ? Tk = /rv\:([^\);]+)(\)|;)/ : Mk ? Tk = /MSIE\s+([^\);]+)(\)|;)/ : Ok && (Tk = /WebKit\/(\S+)/), Tk) {
-      var Vk = Tk.exec(Ik()), Sk = Vk ? Vk[1] : ""
-    }
-  }
-  if(Mk) {
-    var Wk, Xk = ca.document;
-    Wk = Xk ? Xk.documentMode : h;
-    if(Wk > parseFloat(Sk)) {
-      Rk = String(Wk);
-      break a
-    }
-  }
-  Rk = Sk
-}
-var Yk = {};
-function Zk(a) {
-  var b;
-  if(!(b = Yk[a])) {
-    b = 0;
-    for(var c = sa(String(Rk)).split("."), d = sa(String(a)).split("."), f = Math.max(c.length, d.length), g = 0;0 == b && g < f;g++) {
-      var i = c[g] || "", j = d[g] || "", q = RegExp("(\\d*)(\\D*)", "g"), u = RegExp("(\\d*)(\\D*)", "g");
-      do {
-        var w = q.exec(i) || ["", "", ""], y = u.exec(j) || ["", "", ""];
-        if(0 == w[0].length && 0 == y[0].length) {
-          break
-        }
-        b = ((0 == w[1].length ? 0 : parseInt(w[1], 10)) < (0 == y[1].length ? 0 : parseInt(y[1], 10)) ? -1 : (0 == w[1].length ? 0 : parseInt(w[1], 10)) > (0 == y[1].length ? 0 : parseInt(y[1], 10)) ? 1 : 0) || ((0 == w[2].length) < (0 == y[2].length) ? -1 : (0 == w[2].length) > (0 == y[2].length) ? 1 : 0) || (w[2] < y[2] ? -1 : w[2] > y[2] ? 1 : 0)
-      }while(0 == b)
-    }
-    b = Yk[a] = 0 <= b
-  }
-  return b
-}
-var $k = {};
-function al() {
-  return $k[9] || ($k[9] = Mk && !!document.documentMode && 9 <= document.documentMode)
-}
-;!Mk || al();
-var bl = !Mk || al(), cl = Mk && !Zk("8");
-!Ok || Zk("528");
-Nk && Zk("1.9b") || Mk && Zk("8") || Lk && Zk("9.5") || Ok && Zk("528");
-Nk && !Zk("8") || Mk && Zk("9");
-function dl() {
-  this.sc = m
-}
-;function el(a, b) {
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
   this.type = a;
   this.currentTarget = this.target = b
 }
@@ -7087,7 +6859,6 @@ function tl(a, b) {
     g = k;
     try {
       if(j) {
-<<<<<<< HEAD
         for(var A = [], B = u.currentTarget;B;B = B.parentNode) {
           A.push(B)
         }
@@ -7101,21 +6872,6 @@ function tl(a, b) {
           i.fa = i.w;
           for(E = 0;!u.Qa && E < A.length && i.fa;E++) {
             u.currentTarget = A[E], g &= xl(i, A[E], d, m, u)
-=======
-        for(var y = [], F = u.currentTarget;F;F = F.parentNode) {
-          y.push(F)
-        }
-        i = f[k];
-        i.ha = i.z;
-        for(var G = y.length - 1;!u.Ta && 0 <= G && i.ha;G--) {
-          u.currentTarget = y[G], g &= sl(i, y[G], d, k, u)
-        }
-        if(q) {
-          i = f[m];
-          i.ha = i.z;
-          for(G = 0;!u.Ta && G < y.length && i.ha;G++) {
-            u.currentTarget = y[G], g &= sl(i, y[G], d, m, u)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
           }
         }
       }else {
@@ -7328,24 +7084,14 @@ Hl.prototype.Lc = function(a, b, c) {
         }
         try {
           u = c.fileName || c.filename || c.sourceURL || j
-<<<<<<< HEAD
         }catch(B) {
-=======
-        }catch(F) {
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
           u = "Not available", w = k
         }
         i = w || !c.lineNumber || !c.fileName || !c.stack ? {message:c.message, name:c.name, lineNumber:q, fileName:u, stack:c.stack || "Not available"} : c
       }
-<<<<<<< HEAD
       f = "Message: " + sa(i.message) + '\nUrl: <a href="view-source:' + i.fileName + '" target="_new">' + i.fileName + "</a>\nLine: " + i.lineNumber + "\n\nBrowser stack:\n" + sa(i.stack + "-> ") + "[end]\n\nJS stack traversal:\n" + sa(Bl(g) + "-> ")
     }catch(E) {
       f = "Exception trying to expose exception! You win, we lose. " + E
-=======
-      f = "Message: " + ta(i.message) + '\nUrl: <a href="view-source:' + i.fileName + '" target="_new">' + i.fileName + "</a>\nLine: " + i.lineNumber + "\n\nBrowser stack:\n" + ta(i.stack + "-> ") + "[end]\n\nJS stack traversal:\n" + ta(El(g) + "-> ")
-    }catch(G) {
-      f = "Exception trying to expose exception! You win, we lose. " + G
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
     }
     d.qc = f
   }
@@ -7501,7 +7247,7 @@ function em(a) {
           Ol(a.Z, am(a, "Request complete"));
           a.Fa = m;
           try {
-            var b = gm(a), c, d;
+            var b = gm(a), c;
             a: {
               switch(b) {
                 case 200:
@@ -7515,13 +7261,14 @@ function em(a) {
                 case 304:
                 ;
                 case 1223:
-                  d = k;
+                  c = k;
                   break a;
                 default:
-                  d = m
+                  c = m
               }
             }
-            if(!(c = d)) {
+            var d;
+            if(!(d = c)) {
               var f;
               if(f = 0 === b) {
                 var g = String(a.Vb).match(hk)[1] || l;
@@ -7530,9 +7277,9 @@ function em(a) {
                 }
                 f = !$l.test(g ? g.toLowerCase() : "")
               }
-              c = f
+              d = f
             }
-            c ? (a.dispatchEvent("complete"), a.dispatchEvent("success")) : (a.$a = 6, a.ab = hm(a) + " [" + gm(a) + "]", cm(a))
+            d ? (a.dispatchEvent("complete"), a.dispatchEvent("success")) : (a.$a = 6, a.ab = hm(a) + " [" + gm(a) + "]", cm(a))
           }finally {
             dm(a)
           }
@@ -7603,7 +7350,8 @@ function am(a, b) {
       }
       i = h
     }
-    return v(gf(i, Y([200, 201, 202, 204, 205, 206]))) ? v(c) ? c.b ? c.b(function() {
+    i = gf(i, Y([200, 201, 202, 204, 205, 206]));
+    return v(i) ? v(c) ? c.b ? c.b(function() {
       var a = v(b) ? b : "\ufdd0'edn";
       if(N.a ? N.a("\ufdd0'json", a) : N.call(l, "\ufdd0'json", a)) {
         return rj(jm(g))
@@ -8031,7 +7779,6 @@ function hn(a, b) {
 }
 function jn(a) {
   return function(b) {
-<<<<<<< HEAD
     var c;
     c = sb(a).find();
     c = rj(c);
@@ -8050,21 +7797,6 @@ function kn(a) {
   for(c = H(sb(fn));;) {
     if(c) {
       I(c).clear(), c = L(c)
-=======
-    var c = qj(E(a).find()), d = qd(c) ? S.a(ec, c) : c, c = D.c(d, "from", l), d = D.c(d, "to", l);
-    return Am.o ? Am.o(E(on), b, c, d) : Am.call(l, E(on), b, c, d)
-  }
-}
-function tn(a) {
-  var b = $(document).querySelector("#check-grammar-result"), c = Km(Y(["\ufdd0'tbody", rf.a(function(a) {
-    return Km(Y(["\ufdd0'tr", Y(["\ufdd0'td", "" + W((new ue("\ufdd0'line")).call(l, a))]), Y(["\ufdd0'td", (new ue("\ufdd0'message")).call(l, a)])]))
-  }, a)])), b = $(b);
-  b.innerHTML = "";
-  Vm(b, c);
-  for(c = I(E(pn));;) {
-    if(c) {
-      b = J(c), ym.a ? ym.a(E(on), b) : ym.call(l, E(on), b), c = M(c)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
     }else {
       break
     }
@@ -8072,7 +7804,6 @@ function tn(a) {
   aj(fn, qg);
   for(a = H(a);;) {
     if(a) {
-<<<<<<< HEAD
       var b = c = I(a), d = qd(b) ? R.a(fc, b) : b, f = F.c(d, "\ufdd0'suggested-replacements", l), g = F.c(d, "\ufdd0'message", l), i = F.c(d, "\ufdd0'end-column", l), j = F.c(d, "\ufdd0'end-line", l), q = F.c(d, "\ufdd0'column", l), u = F.c(d, "\ufdd0'line", l), w = Rg(["\ufdd0'line", "\ufdd0'ch"], {"\ufdd0'line":u, "\ufdd0'ch":q - 1}), A = Rg(["\ufdd0'line", "\ufdd0'ch"], {"\ufdd0'line":j, "\ufdd0'ch":i - 1}), B;
       B = sb(en);
       var E = A;
@@ -8091,28 +7822,11 @@ function tn(a) {
         }
       }(a, b, d, f, g, i, j, q, u, w, A, B, E, P, M, c)], 0));
       a = L(a)
-=======
-      var b = c = J(a), d = qd(b) ? S.a(ec, b) : b, f = D.c(d, "\ufdd0'suggested-replacements", l), g = D.c(d, "\ufdd0'message", l), i = D.c(d, "\ufdd0'end-column", l), j = D.c(d, "\ufdd0'end-line", l), q = D.c(d, "\ufdd0'column", l), u = D.c(d, "\ufdd0'line", l), w = Z(["\ufdd0'line", "\ufdd0'ch"], {"\ufdd0'line":u, "\ufdd0'ch":q - 1}), y = Z(["\ufdd0'line", "\ufdd0'ch"], {"\ufdd0'line":j, "\ufdd0'ch":i - 1}), F = zm.c ? zm.c(E(on), w, y) : zm.call(l, E(on), w, y), G = Vi.b(l), P = Km(rn(f, sn(G))), 
-      O = Km(Y(["\ufdd0'span", Z(["\ufdd0'classes"], {"\ufdd0'classes":Y(["grammar-checker-problem"])}), F, P]));
-      aj.c(pn, Lc, $i(G, xm.o ? xm.o(E(on), w, y, Z(["\ufdd0'clearOnEnter", "\ufdd0'replacedWith"], {"\ufdd0'clearOnEnter":k, "\ufdd0'replacedWith":O})) : xm.call(l, E(on), w, y, Z(["\ufdd0'clearOnEnter", "\ufdd0'replacedWith"], {"\ufdd0'clearOnEnter":k, "\ufdd0'replacedWith":O}))));
-      nn.e(O, Q(["\ufdd0'mouseover", function(a, b, c, d, f, g, i, j, q, u, w, y, F, G) {
-        return function() {
-          return Dj.a(G, k)
-        }
-      }(a, b, d, f, g, i, j, q, u, w, y, F, G, P, O, c)], 0));
-      nn.e(O, Q(["\ufdd0'mouseout", function(a, b, c, d, f, g, i, j, q, u, w, y, G, F) {
-        return function() {
-          return Dj.a(F, m)
-        }
-      }(a, b, d, f, g, i, j, q, u, w, y, F, G, P, O, c)], 0));
-      a = M(a)
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
     }else {
       return l
     }
   }
 }
-<<<<<<< HEAD
 function ln() {
   sb(en).focus();
   return nm.e("/check-grammar", O([Rg(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":kn, "\ufdd0'params":Rg(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":om.b(sb(en))})})], 0))
@@ -8139,31 +7853,6 @@ function pn() {
   dn.e(Z(document).querySelector("#check-grammar"), O(["\ufdd0'click", ln], 0));
   dn.e(Z(document).querySelector("#dumb-check-grammar"), O(["\ufdd0'click", mn], 0));
   return dn.e(Z(document).querySelector("#extract-text"), O(["\ufdd0'click", on], 0))
-=======
-function un() {
-  wm.b ? wm.b(E(on)) : wm.call(l, E(on));
-  return qm.e("/check-grammar", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":tn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(E(on)) : sm.call(l, E(on))})})], 0))
-}
-function vn() {
-  wm.b ? wm.b(E(on)) : wm.call(l, E(on));
-  return qm.e("/dumb-check-grammar", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":tn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(E(on)) : sm.call(l, E(on))})})], 0))
-}
-function wn(a) {
-  return vm.a ? vm.a(E(on), a) : vm.call(l, E(on), a)
-}
-function xn() {
-  wm.b ? wm.b(E(on)) : wm.call(l, E(on));
-  return qm.e("/extract-text", Q([Z(["\ufdd0'handler", "\ufdd0'params"], {"\ufdd0'handler":wn, "\ufdd0'params":Z(["\ufdd0'latex-markup"], {"\ufdd0'latex-markup":sm.b ? sm.b(E(on)) : sm.call(l, E(on))})})], 0))
-}
-function yn() {
-  Vm(Vm(Vm(qn, Km(Y(["\ufdd0'textarea#latex-markup", "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))), Km(Y(["\ufdd0'div#buttons.text-center", Km(Y(["\ufdd0'div#buttons.btn-group", Km(Y(["\ufdd0'a#check-grammar.btn", Km(Y(["\ufdd0'i.icon-check"])), Km(Y(["\ufdd0'span", " Check Grammar"]))])), Km(Y(["\ufdd0'a#dumb-check-grammar.btn", "Dumb Check Grammar"])), Km(Y(["\ufdd0'a#extract-text.btn", "Extract Text"]))]))]))), Km(Y(["\ufdd0'table#check-grammar-result", Z(["\ufdd0'class"], 
-  {"\ufdd0'class":"table table-condensed table-striped table-hover"})])));
-  $i(on, rm.a ? rm.a($(document).querySelector("#latex-markup"), Z(["\ufdd0'lineNumbers", "\ufdd0'mode", "\ufdd0'tabMode", "\ufdd0'highlightSelectionMatches", "\ufdd0'gutters"], {"\ufdd0'lineNumbers":k, "\ufdd0'mode":Z(["\ufdd0'name"], {"\ufdd0'name":"stex"}), "\ufdd0'tabMode":"indent", "\ufdd0'highlightSelectionMatches":k, "\ufdd0'gutters":Y(["grammar-checker-problem-gutter"])})) : rm.call(l, $(document).querySelector("#latex-markup"), Z(["\ufdd0'lineNumbers", "\ufdd0'mode", "\ufdd0'tabMode", "\ufdd0'highlightSelectionMatches", 
-  "\ufdd0'gutters"], {"\ufdd0'lineNumbers":k, "\ufdd0'mode":Z(["\ufdd0'name"], {"\ufdd0'name":"stex"}), "\ufdd0'tabMode":"indent", "\ufdd0'highlightSelectionMatches":k, "\ufdd0'gutters":Y(["grammar-checker-problem-gutter"])})));
-  nn.e($(document).querySelector("#check-grammar"), Q(["\ufdd0'click", un], 0));
-  nn.e($(document).querySelector("#dumb-check-grammar"), Q(["\ufdd0'click", vn], 0));
-  return nn.e($(document).querySelector("#extract-text"), Q(["\ufdd0'click", xn], 0))
->>>>>>> 0a5f1104d432b0579089e3ab58ea7832544214eb
 }
 var qn = ["latex_grammar_check", "client", "home", "init"], rn = ca;
 !(qn[0] in rn) && rn.execScript && rn.execScript("var " + qn[0]);

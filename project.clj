@@ -43,6 +43,6 @@
               :source-paths ["src/cljs"], 
               :compiler {:output-to "resources/public/js/main.js",
                          :optimizations :advanced
-                         :externs ["externs/codemirror.js" "externs/jquery-1.9.js"]}}]}
+                         :externs ["externs/codemirror.js" "externs/jquery-1.9.js" "externs/bootstrap.js"]}}]}
   :main ^{:skip-aot true} latex-grammar-check.server
   :repositories {"3rd party" "https://github.com/alexguev/maven/raw/master/releases"})
