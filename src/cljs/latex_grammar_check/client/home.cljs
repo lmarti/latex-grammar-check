@@ -52,7 +52,8 @@
           tooltip (template/node (grammar-error-tooltip message suggested-replacements (apply-replacement-fn mark-atom)))
           element (template/node (grammar-error text tooltip))]
       
-      (.popover (js/jQuery element) (clj->js {:title message 
+      (.popover (js/jQuery element) (clj->js {:container "body"
+                                              :title message 
                                               :content (.-outerHTML tooltip) ;;"<a href='http://www.google.com'>Google</a>"
                                               :trigger "manual"
                                               :html true
@@ -66,7 +67,7 @@
            (swap! grammar-check-marks conj))
       (listen! element :mouseover #(.popover (js/jQuery element) "show"))
       ;; add event handler after show :)
-      ;;(listen! element :mouseout #(.popover (js/jQuery element) "hide"))
+      (listen! element :mouseout #(.popover (js/jQuery element) "hide"))
       )))
 
 (defn handle-check-grammar [e]
