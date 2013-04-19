@@ -30,13 +30,11 @@
       (cm/replace-range @editor replacement from to))))
 
 (defn handle-grammar-check-result [coll]
-  
-  ; errors are listed as a table with line number and description
   (replace-contents! (sel1 :#check-grammar-result)
-                     ;;[(template/node [:tr  [:td "##"] [:td "Description"]])
-                     (template/node [:tbody 
-                                     (map #(template/node 
-                                            [:tr [:td (str (:line %))] [:td (:message %)]]) coll)]))
+                     (template/node
+                        [:div
+                          [:tr  [:td "##"] [:td [:b "Description"]]]
+                          [:tbody (map (fn [r] [:tr [:td (:line r)] [:td (:message r)]]) coll)]]))
   
   (doseq [mark @grammar-check-marks] (cm/clear-mark mark))
   (reset! grammar-check-marks [])
