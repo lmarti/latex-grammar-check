@@ -1,5 +1,5 @@
 (ns latex-grammar-check.client.home
-  (:require [dommy.core :refer [listen! replace-contents! append!]]
+  (:require [dommy.core :refer [listen! replace-contents! append! descendant?]]
             [dommy.attrs :refer [toggle-class! hidden? toggle!]]
             [dommy.template :as template]
             [domina :as dom]
@@ -13,21 +13,34 @@
 
 (def container (sel1 :#container))
 
-(defn grammar-error-tooltip [message replacements f]
+(defn grammar-error-tooltip [message replacements]
   [:div
    [:lu
-    (for [r replacements]
-     (let [e (template/node [:li r])]
-       (listen! e :click #(f r))
-       e))]])
+    (for [[index r] (map-indexed vector replacements)]
+     [:li {:id index :classes ["replacement"]} r]
+      )]])
 
 (defn grammar-error [text tooltip]
   [:span {:classes ["grammar-checker-problem"]} text])
 
-(defn apply-replacement-fn [mark-atom]
+(defn apply-replacement-fn [mark]
   (fn [replacement]
-    (let [{from "from" to "to"} (js->clj (cm/find-mark @mark-atom))]
+    (let [{from "from" to "to"} (js->clj (cm/find-mark mark))]
       (cm/replace-range @editor replacement from to))))
+
+(defn attach-popover [element replacements mark]
+  (listen! element :mouseover #(do (.popover (js/jQuery element) "show")
+                                 (let [popover (sel1 :.popover)
+                                       items (sel popover :.replacement)
+                                       f (apply-replacement-fn mark)]
+                                   (doseq [item items]
+                                     (let [id (.-id item)]
+                                       (listen! item :click (fn [e] 
+                                                              (f (get replacements id))
+                                                              (.popover (js/jQuery element) "hide")))))
+                                   (listen! popover :mouseout (fn [e] (do (when-not (descendant? (.-relatedTarget e) popover) 
+                                                                            (.popover (js/jQuery element) "hide"))))))))
+  mark)
 
 (defn handle-grammar-check-result [coll]
   (replace-contents! (sel1 :#check-grammar-result)
@@ -46,13 +59,11 @@
           from {:line line :ch (dec column)}
           to {:line end-line :ch (dec end-column)}
           text (cm/get-range @editor from to)
-          mark-atom (atom nil)
-          tooltip (template/node (grammar-error-tooltip message suggested-replacements (apply-replacement-fn mark-atom)))
+          tooltip (template/node (grammar-error-tooltip message suggested-replacements))
           element (template/node (grammar-error text tooltip))]
-      
       (.popover (js/jQuery element) (clj->js {:container "body"
                                               :title message 
-                                              :content (.-outerHTML tooltip) ;;"<a href='http://www.google.com'>Google</a>"
+                                              :content (.-outerHTML tooltip)
                                               :trigger "manual"
                                               :html true
                                               :placement "bottom"}))
@@ -61,11 +72,9 @@
                          {:clearOnEnter true
                           :replacedWith element
                           })
-           (reset! mark-atom)
-           (swap! grammar-check-marks conj))
-      (listen! element :mouseover #(.popover (js/jQuery element) "show"))
-      ;; add event handler after show :)
-      (listen! element :mouseout #(.popover (js/jQuery element) "hide"))
+           (attach-popover element suggested-replacements)
+           (swap! grammar-check-marks conj)
+           )
       )))
 
 (defn handle-check-grammar [e]
