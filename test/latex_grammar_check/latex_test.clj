@@ -14,7 +14,11 @@
 
 (run-tests)
 
-(println (latex/extract-text (latex/tokenize (slurp "src/sablecc/sample.tex"))))
+;;(println (latex/extract-text (latex/tokenize (slurp "src/sablecc/sample.tex"))))
+
+;;(latex/extract-text (latex/tokenize "\\documentstyle[html]{article} % comment"))
+
+;;(latex/tokenize "\\documentstyle[html]{article}")
 
 ;(println (latex/extract-text (latex/tokenize "$x$ to the power of $y$ equals 0.")))
 

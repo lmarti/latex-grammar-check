@@ -5,13 +5,11 @@ FIXME
 ## Getting Started
 
 1. Start the application: `lein run`
-2. Go to [localhost:8080](http://localhost:8080/) to see: `Hello World!`
+2. Go to [localhost:8080](http://localhost:8080/) to see the awesome Latex Grammar Check UI
 3. Read your app's source code at src/latex_grammar_check/service.clj. Explore the docs of functions
    that define routes and responses.
 4. Run your app's tests with `lein test`. Read the tests at test/latex_grammar_check/service_test.clj.
 5. Learn more! See the [Links section below](#links).
-
-- AG: tbd Document generation of parser
 
 ## Configuration
 
@@ -20,3 +18,4 @@ To learn more about configuring Logback, read its [documentation](http://logback
 
 ## Links
 * [Other examples](https://github.com/pedestal/samples)
+  

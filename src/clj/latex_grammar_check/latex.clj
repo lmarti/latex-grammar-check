@@ -32,11 +32,10 @@
 
 (defn extract-text [tokens]
   (let [text (->> tokens
-                  (filter #(or (word? %) (comment? %)))
                   (map #(if (word? %) (:text %) %))
                   (map #(if (comment? %) "\n" %))
-                  (map #(if-not (string? %) 
-                          (repeat-string (count (:text %)) " ") 
+                  (map #(if-not (string? %)
+                          (do (println (count (:text %))) (repeat-string (count (:text %)) " "))
                           %))
                   (string/join))]
     text))
