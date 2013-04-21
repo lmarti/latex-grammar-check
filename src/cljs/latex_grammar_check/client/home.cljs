@@ -102,7 +102,7 @@
   (-> container 
       (append! (template/node [:textarea#latex-markup "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))
       (append! 
-        (template/node [:div#buttons.text-center
+        (template/node [:div {:class "span12 text-center"}
           (template/node [:div#buttons.btn-group
             (template/node [:a#check-grammar.btn  
                            (template/node [:i.icon-check ]) 
