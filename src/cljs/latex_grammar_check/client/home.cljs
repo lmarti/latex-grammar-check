@@ -4,14 +4,22 @@
             [dommy.template :as template]
             [domina :as dom]
             [ajax.core :as ajax]
-            [latex-grammar-check.client.codemirror :as cm])
+            [latex-grammar-check.client.codemirror :as cm]
+            [latex-grammar-check.client.model :as model]
+            [latex-grammar-check.client.text-mark :as tm]
+            [latex-grammar-check.client.error-message :as em])
   (:require-macros [dommy.macros :refer [sel1 sel]]))
 
 (def editor (atom nil))
 
+(def container (sel1 :#container))
+
 (def grammar-check-marks (atom []))
 
-(def container (sel1 :#container))
+(defn add-index [errors]
+  (->> errors
+       (map-indexed (fn [index error] (assoc error :index index)))
+       vec))
 
 (defn grammar-error-tooltip [message replacements]
   [:div
@@ -20,7 +28,7 @@
      [:li {:id index :classes ["replacement"]} r]
       )]])
 
-(defn grammar-error [text tooltip]
+(defn grammar-error [text]
   [:span {:classes ["grammar-checker-problem"]} text])
 
 (defn apply-replacement-fn [mark]
@@ -42,7 +50,7 @@
                                                                             (.popover (js/jQuery element) "hide"))))))))
   mark)
 
-(defn handle-grammar-check-result [coll]
+(defn handle-grammar-check-result-old [coll]
   (replace-contents! (sel1 :#check-grammar-result)
                      (template/node
                         [:div
@@ -60,7 +68,7 @@
           to {:line end-line :ch (dec end-column)}
           text (cm/get-range @editor from to)
           tooltip (template/node (grammar-error-tooltip message suggested-replacements))
-          element (template/node (grammar-error text tooltip))]
+          element (template/node (grammar-error text))]
       (.popover (js/jQuery element) (clj->js {:container "body"
                                               :title message 
                                               :content (.-outerHTML tooltip)
@@ -76,6 +84,12 @@
            (swap! grammar-check-marks conj)
            )
       )))
+
+
+(defn handle-grammar-check-result [errors]
+  (model/clear-errors)
+  (doseq [e (add-index errors)]
+    (model/add-error e)))
 
 (defn handle-check-grammar [e]
   (cm/focus @editor)
@@ -101,16 +115,18 @@
 (defn ^:export init []
   (-> container 
       (append! (template/node [:textarea#latex-markup "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))
-      (append! 
-        (template/node [:div {:class "span12 text-center"}
-          (template/node [:div#buttons.btn-group
-            (template/node [:a#check-grammar.btn  
-                           (template/node [:i.icon-check ]) 
-                           (template/node [:span  " Check Grammar"])])
-            (template/node [:a#dumb-check-grammar.btn "Dumb Check Grammar"])
-            (template/node [:a#extract-text.btn "Extract Text"])])]))
-      (append! 
-       (template/node [:table#check-grammar-result {:class "table table-condensed table-striped table-hover"}])))
+      (append! (template/node 
+       [:div {:class "span12 text-center"}
+        [:div#buttons.btn-group
+          [:a#check-grammar.btn  
+            [:i.icon-check ]
+            [:span  " Check Grammar"]]
+          [:a#dumb-check-grammar.btn "Dumb Check Grammar"]
+          [:a#extract-text.btn "Extract Text"]]]))
+      (append! (template/node 
+                [:table#check-grammar-result {:class "table table-condensed table-striped table-hover"}
+                 [:tr  [:td "##"] [:td [:b "Description"]]]
+                 [:tbody#errors]])))
   (reset! editor (cm/create-editor (sel1 :#latex-markup) {:lineNumbers true
                                                           :mode { :name "stex" }
                                                           :tabMode "indent"
@@ -119,4 +135,6 @@
                                                           :gutters ["grammar-checker-problem-gutter"]}))  
   (listen! (sel1 :#check-grammar) :click handle-check-grammar)
   (listen! (sel1 :#dumb-check-grammar) :click handle-dumb-check-grammar)
-  (listen! (sel1 :#extract-text) :click handle-extract-text))
+  (listen! (sel1 :#extract-text) :click handle-extract-text)
+  (em/init)
+  (tm/init @editor))

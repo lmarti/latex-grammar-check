@@ -10,11 +10,11 @@
     (let [matches (.check lang-tool text)]
       (map (fn [m] {:line (.getLine m)
                     :end-line (.getEndLine m)
-                    :column (.getColumn m)
-                    :end-column (.getEndColumn m)
+                    :column (dec (.getColumn m))
+                    :end-column (dec (.getEndColumn m))
                     :message (.getMessage m)
                     :rule-id (.. m getRule getId)
-                    :suggested-replacements (vec (.getSuggestedReplacements m))}) matches))))
+                    :replacements (vec (.getSuggestedReplacements m))}) matches))))
 
 ;(check-grammar "A sentence with a error in the Hitchhiker's Guide tot he Galaxy")
 
