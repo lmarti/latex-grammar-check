@@ -1,4 +1,4 @@
-= TO DO =
+# TO DO
 
 - fix \documentstyle[html]{article} bug
 - Not checking of heading text: \title \author \inst \institute \part \chapter \section \subsection \subsubsection \paragraph. 
@@ -6,7 +6,6 @@
 - correct show/hide of popover
 - use tooltip where there are no recommendations
 - fucking improve the stucture of the code
-
 - "check in progress" sign (hourglass, spinning thingy, etc.)
 - also display error message and recommendations on the gutter
 - message "check passed successfully"
@@ -20,7 +19,7 @@
 - Error feedback when the .tex file is not a valid latex for the parser.
 - support to Ignore error / Ignore all errors of this type
 
-= Main use case =
+# Main use case
 
 - A user pastes or uploads a .tex file.
 - Its shown in a text area and automatically checked. 
@@ -29,23 +28,23 @@
 - When there are no errors a red light turns green.
 - The user can download the file or just copy it.
 
-* Long term features *
+# Long term features
+
 - Have users, with workspaces.
 - Integration with dropbox and google docs.
-- Possible integration with writelatex.com.
+- Possible integration with writelatex.com or sharelatex.com.
  
-= DONE =
+# DONE
 
-== April 20, 2013
+## April 20, 2013
 
 - display error message and recommendations on mouse over
 
-== April 13, 2013 ==
+## April 13, 2013
 
 - deal with column number issue
 - get language-tool to ignore this error "Possible typo: you repeated a whitespace"  (the langtool api supports this)
 
-== April 15, 2013 ==
+## April 15, 2013
 
 - clear existing marks before adding new ones
-
