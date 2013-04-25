@@ -15,10 +15,10 @@
         message (error-message error)]
     (when (empty? @error-to-message-map) 
       (append! parent (template/node
-        [:table {:class "table table-condensed table-striped table-hover"}
+        [:table#messages_table {:class "table table-condensed table-striped table-hover"}
          [:tr [:td "##"] [:td [:b "Description"]]]
-         [:tbody#table_body]])))
-    (append! (sel1 :#table_body) message)
+         [:tbody#messages]])))
+    (append! (sel1 :#messages) message)
     (listen! message :click #(model/select-error error))
     (swap! error-to-message-map assoc error message)))
 
@@ -27,7 +27,7 @@
     (remove! message)
     (swap! error-to-message-map dissoc error)
     (when (empty? @error-to-message-map) 
-      (replace-contents! (sel1 :#check-grammar-result) nil))))
+      (remove! (sel1 :#messages_table)))))
 
 (defn handle-select [error]
   )

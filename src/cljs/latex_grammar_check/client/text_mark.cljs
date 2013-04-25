@@ -36,7 +36,8 @@
 (defn handle-select [editor error]
   (when-let [{:keys [mark]} (get @error-to-mark-map error)]
     (let [{from "from"} (js->clj (.find mark))]
-      (.setCursor editor (clj->js from)))))
+      (.setCursor editor (clj->js from))))
+  (cm/focus editor))
 
 (defn init [editor]
   (add-watch model/action :text-mark-watcher
