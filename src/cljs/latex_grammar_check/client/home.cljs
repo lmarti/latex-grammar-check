@@ -55,7 +55,8 @@
                      (template/node
                         [:div
                           [:tr  [:td "##"] [:td [:b "Description"]]]
-                          [:tbody (map (fn [r] [:tr [:td (:line r)] [:td (:message r)]]) coll)]]))
+                          [:tbody 
+                           (map (fn [r] [:tr [:td (:line r)] [:td (:message r)]]) coll)]]))
   
   (doseq [mark @grammar-check-marks] (cm/clear-mark mark))
   (reset! grammar-check-marks [])
@@ -85,11 +86,10 @@
            )
       )))
 
-
 (defn handle-grammar-check-result [errors]
-  (model/clear-errors)
-  (doseq [e (add-index errors)]
-    (model/add-error e)))
+  (model/remove-all-errors)
+  (doseq [error (add-index errors)]
+    (model/add-error error)))
 
 (defn handle-check-grammar [e]
   (cm/focus @editor)
@@ -116,17 +116,14 @@
   (-> container 
       (append! (template/node [:textarea#latex-markup "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))
       (append! (template/node 
-       [:div {:class "span12 text-center"}
+       [:div#buttons.text-center
         [:div#buttons.btn-group
           [:a#check-grammar.btn  
-            [:i.icon-check ]
+            [:i.icon-check]
             [:span  " Check Grammar"]]
           [:a#dumb-check-grammar.btn "Dumb Check Grammar"]
           [:a#extract-text.btn "Extract Text"]]]))
-      (append! (template/node 
-                [:table#check-grammar-result {:class "table table-condensed table-striped table-hover"}
-                 [:tr  [:td "##"] [:td [:b "Description"]]]
-                 [:tbody#errors]])))
+      (append! (template/node [:div#check-grammar-result])))
   (reset! editor (cm/create-editor (sel1 :#latex-markup) {:lineNumbers true
                                                           :mode { :name "stex" }
                                                           :tabMode "indent"

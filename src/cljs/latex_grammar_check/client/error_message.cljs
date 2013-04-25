@@ -5,25 +5,37 @@
             [dommy.template :as template])
   (:require-macros [dommy.macros :refer [sel1]]))
 
-(defn error-id [{:keys [index] :as error}]
-  (str "error-" index))
+(def error-to-message-map (atom {}))
 
-(defn append-error-message! [error]
-  (append! (sel1 :#errors)
-           (template/node [:tr {:id (error-id error)} 
-                           [:td (:line error)] 
-                           [:td (:message error)]])))
+(defn error-message [error]
+  (template/node [:tr [:td (:line error)] [:td (:message error)]]))
 
-(defn remove-error-message! [error]
-  (remove! (sel1 (error-id error))))
+(defn handle-add [error]
+  (let [parent (sel1 :#check-grammar-result)
+        message (error-message error)]
+    (when (empty? @error-to-message-map) 
+      (append! parent (template/node
+        [:table {:class "table table-condensed table-striped table-hover"}
+         [:tr [:td "##"] [:td [:b "Description"]]]
+         [:tbody#table_body]])))
+    (append! (sel1 :#table_body) message)
+    (listen! message :click #(model/select-error error))
+    (swap! error-to-message-map assoc error message)))
 
-(defn clear-error-messages! []
-  (replace-contents! (sel1 :#errors) nil))
+(defn handle-remove [error]
+  (when-let [message (get @error-to-message-map error)] 
+    (remove! message)
+    (swap! error-to-message-map dissoc error)
+    (when (empty? @error-to-message-map) 
+      (replace-contents! (sel1 :#check-grammar-result) nil))))
 
-(defn init[]
+(defn handle-select [error]
+  )
+
+(defn init []
   (add-watch model/action :error-message-watcher
-    (fn [_ _ _ {:keys [type data]}]
+    (fn [_ _ _ {type :type error :data}]
       (case type
-        :add (append-error-message! data)
-        :remove (remove-error-message! data)
-        :clear (clear-error-messages!)))))
+        :add (handle-add error)
+        :remove (handle-remove error)
+        :select (handle-select error)))))

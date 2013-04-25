@@ -31,5 +31,16 @@
 (defn replace-range [editor replacement from to]
   (.replaceRange editor replacement (clj->js from) (clj->js to)))
 
+; tbd: add to externs
+(defn on [target event-type handler]
+  (case event-type
+    :clear (.on js/CodeMirror target (name event-type) handler)
+    "tbd: throw exception"))
+
+; tbd: add to externs
+(defn off [target event-type handler]
+  (case event-type
+    :clear (.off js/CodeMirror target (name event-type) handler)
+    "tbd: throw exception"))
 
 
