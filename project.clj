@@ -34,7 +34,7 @@
   :cljsbuild {
     :builds [{:id "dev"
               :source-paths ["src/cljs"], 
-              ;:notify-command ["growlnotify" "-m" ""]
+              :notify-command ["growlnotify" "-m" ""]
               :compiler {:pretty-print true, 
                          :output-to "resources/public/cljs/main.js",
                          :output-dir "resources/public/cljs/"

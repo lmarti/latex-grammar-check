@@ -6,9 +6,26 @@
             [ajax.core :as ajax]
             [latex-grammar-check.client.codemirror :as cm]
             [latex-grammar-check.client.model :as model])
-  (:require-macros [dommy.macros :refer [sel1 sel]]))
+  (:require-macros [dommy.macros :refer [sel1 sel deftemplate]]))
 
 (def error-to-mark-map (atom {}))
+
+
+(deftemplate popover-content [replacements]
+  [:div
+   [:lu
+    (for [[index r] (map-indexed vector replacements)]
+     [:li {:id index :classes ["replacement"]} r])]])
+
+(defn attach-popover! [elem message replacements]
+  (let [content (popover-content replacements)]
+    (.popover (js/jQuery elem) 
+              (clj->js {:container "body"
+                        :title message 
+                        :content (.-outerHTML content)
+                        :trigger "hover"
+                        :html true
+                        :placement "bottom"}))))
 
 (defn grammar-error [text]
   [:span {:classes ["grammar-checker-problem"]} text])
@@ -18,8 +35,10 @@
         from {:line line :ch column}
         to {:line end-line :ch end-column}
         text (cm/get-range editor from to)
-        element (template/node (grammar-error text))]
-    (cm/mark-text editor from to {:clearOnEnter true :replacedWith element})))
+        elem (template/node (grammar-error text))
+        mark (cm/mark-text editor from to {:clearOnEnter true :replacedWith elem})]
+    (attach-popover! elem message replacements)
+    mark))
 
 (defn handle-add [editor error]
   (let [mark (append-text-mark! editor error)
