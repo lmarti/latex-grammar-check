@@ -2,7 +2,6 @@
   (:require [dommy.core :refer [listen! replace-contents! append! descendant?]]
             [dommy.attrs :refer [toggle-class! hidden? toggle!]]
             [dommy.template :as template]
-            [domina :as dom]
             [ajax.core :as ajax]
             [latex-grammar-check.client.codemirror :as cm]
             [latex-grammar-check.client.model :as model]

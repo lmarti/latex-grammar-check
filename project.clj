@@ -23,7 +23,8 @@
                  ;; Clojurescript
                  [prismatic/dommy "0.1.0"]
                  [cljs-ajax "0.1.0"]
-                 [domina "1.0.1" :exclusions [org.clojure/clojure]]]
+                 ;;[domina "1.0.1" :exclusions [org.clojure/clojure]]
+                 [jayq "2.3.0"]]
   :profiles {:dev {:source-paths ["src/dev"]
                    :dependencies [[sablecc/sablecc "3.7"]]}}
   :min-lein-version "2.0.0"
