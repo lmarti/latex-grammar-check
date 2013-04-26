@@ -12,7 +12,7 @@
 
 
 (deftemplate popover-content [replacements]
-  [:div#popover-content
+  [:div
    [:lu
     (for [[index r] (map-indexed vector replacements)]
      [:li {:id index :classes ["replacement"]} r])]])
@@ -34,23 +34,21 @@
 
 (defn show-popover [elem]
   (.popover (js/jQuery elem) "show")
-  (reset! mouseover-popover true)
   (sel1 :.popover))
 
 (defn hide-popover [elem]
   (reset! mouseover-popover false)
   (.popover (js/jQuery elem) "hide"))
 
-(defn contains? [container contained]
-  (.contains js/jQuery container contained))
+;;tbd keep the popover if mouse still on grammar error
 
+;; tbd use events to signal user mousing over a grammatical error
 (defn handle-mouseover-error [e]
   (this-as elem
     (let [popover (show-popover elem)]
-      ;;(js/alert (.-outerHTML popover))
-      (listen! popover :mouseover #(reset! mouseover-popover true))
-      (wait 2000 #(when-not @mouseover-popover (hide-popover elem)))
-      (listen! (sel1 popover :#popover-content) :mouseout #(when-not (contains? popover (.-relatedTarget e))
+      (listen! popover :mouseenter #(reset! mouseover-popover true))
+      (wait 750 #(when-not @mouseover-popover (hide-popover elem)))
+      (listen! popover :mouseleave #(when-not (descendant? (.-relatedTarget e) popover)
                                     ;;(js/alert (.-outerHTML (.-relatedTarget e)))
                                     (hide-popover elem)))
       )))
