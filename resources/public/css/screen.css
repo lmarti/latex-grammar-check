@@ -13,9 +13,8 @@
 }
 
 .grammar-checker-problem {
-  /*color: red;*/
-  background: #FFE6FF;
   position: relative;
+  border-bottom: 2px dotted red;
 }
 
 .grammar-checker-problem span {
