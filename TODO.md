@@ -18,6 +18,7 @@
 - How to treat \newcommand{}s
 - Error feedback when the .tex file is not a valid latex for the parser.
 - support to Ignore error / Ignore all errors of this type
+- use jayq instead of using jquery directly
 
 # Main use case
 
