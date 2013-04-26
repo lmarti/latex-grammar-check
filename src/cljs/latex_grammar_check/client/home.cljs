@@ -114,7 +114,7 @@
 
 (defn ^:export init []
   (-> container 
-      (append! (template/node [:textarea#latex-markup "A sentence with a error in the Hitchhiker's Guide tot he Galaxy"]))
+      (append! (template/node [:textarea#latex-markup "A \\LaTeX sentence with \\emph{a} error in the \\textbf{Hitchhiker's Guide} tot he Galaxy"]))
       (append! (template/node 
        [:div#buttons.text-center
         [:div#buttons.btn-group
