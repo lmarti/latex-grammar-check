@@ -30,6 +30,7 @@
 (defn grammar-error [text]
   [:span.grammar-checker-problem text])
 
+;; tbd: consider moving to handle-mouseover-error
 (def mouseover-popover (atom false))
 
 (defn show-popover [elem]
@@ -40,17 +41,18 @@
   (reset! mouseover-popover false)
   (.popover (js/jQuery elem) "hide"))
 
-;;tbd keep the popover if mouse still on grammar error
+(defn handle-mouseleave-error [elem]
+  (fn [e]
+    (wait 500 #(when-not @mouseover-popover (hide-popover elem)))))
 
 ;; tbd use events to signal user mousing over a grammatical error
 (defn handle-mouseover-error [e]
   (this-as elem
     (let [popover (show-popover elem)]
+      ;(attach-click-handler popover)
+      (listen! elem :mouseleave (handle-mouseleave-error elem))
       (listen! popover :mouseenter #(reset! mouseover-popover true))
-      (wait 750 #(when-not @mouseover-popover (hide-popover elem)))
-      (listen! popover :mouseleave #(when-not (descendant? (.-relatedTarget e) popover)
-                                    ;;(js/alert (.-outerHTML (.-relatedTarget e)))
-                                    (hide-popover elem)))
+      (listen! popover :mouseleave #(hide-popover elem))
       )))
 
 (defn append-text-mark! [editor error]
