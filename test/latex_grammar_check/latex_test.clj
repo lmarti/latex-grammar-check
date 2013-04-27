@@ -18,7 +18,7 @@
 
 ;;(latex/extract-text (latex/tokenize "\\documentstyle[html]{article} % comment"))
 
-;;(latex/tokenize "\\documentstyle[html]{article}")
+;(latex/tokenize "\\emph{a}")
 
 ;(println (latex/extract-text (latex/tokenize "$x$ to the power of $y$ equals 0.")))
 
