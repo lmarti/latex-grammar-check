@@ -97,6 +97,7 @@
 (defn handle-select [editor error]
   (when-let [{:keys [mark]} (get @error-to-mark-map error)]
     (let [{from "from"} (js->clj (.find mark))]
+      (.scrollIntoView editor (clj->js from) 100)
       (.setCursor editor (clj->js from))))
   (cm/focus editor))
 

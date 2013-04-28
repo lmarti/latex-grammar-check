@@ -27,8 +27,6 @@
 (defn comment? [token]
   (= (:node-type token) :tcommentline))
 
-(defn ignore-heading-text? [])
-
 (defn repeat-string [n s]
   (apply str (repeat n s)))
 
@@ -42,16 +40,9 @@
   (= (:node-type token) :trbrace))
 
 (defn ignore-title-words? [token]
-  (contains? #{"\\title" "\\author" "\\inst" "\\institute" "\\part" "\\chapter" 
+  (contains? #{"\\documentstyle" "\\title" "\\author" "\\inst" "\\institute" "\\part" "\\chapter" 
          "\\section" "\\subsection" "\\subsubsection" "\\paragraph"}
        (:text token)))
-
-
-(defn update-state! [state token]
-  (cond (= (:node-type token) :trbrace) (assoc! state :ignore-text false)
-        (and (title? token) (ignore-title-words? token)) (assoc! state :ignore-text true)
-        :else state)
-  state)
 
 (defn map-words [tokens]
   (-> (reduce (fn [result token] 
@@ -74,9 +65,6 @@
               tokens)
       :m))
 
-
-(update-in {:ignore-word false :m []} [:m] conj "df" "dfg")
-
 (defn extract-text [tokens]
   (let [text (->> tokens
                   (map-words)
@@ -86,5 +74,3 @@
                           %))
                   (string/join))]
     text))
-
-(extract-text (tokenize "\\sdf{Luis Martí}"))

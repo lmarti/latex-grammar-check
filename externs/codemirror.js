@@ -20,6 +20,8 @@ CodeMirror.prototype.replaceRange = function(replacement, from, to) {}
 
 CodeMirror.prototype.setCursor = function(line, ch, extend) {}
 
+CodeMirror.prototype.scrollIntoView = function(pos, margin) {}
+
 CodeMirror.TextMarker.prototype.clear = function() {}
 
 CodeMirror.TextMarker.prototype.find = function() {}
