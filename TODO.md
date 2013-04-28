@@ -2,9 +2,7 @@
 
 - move popover related code to popover.cljs
 - use tooltip where there are no recommendations
-- fix \documentstyle[html]{article} bug
-   general problem of not including some text between {}
-- Not checking of heading text: \title \author \inst \institute \part \chapter \section \subsection \subsubsection \paragraph. 
+- fix \documentstyle[html]{article} bug general problem of not including some text between {}
   Users should be able to enable/disable this add more tags.
 - fucking improve the stucture of the code
 - "check in progress" sign (hourglass, spinning thingy, etc.)
@@ -38,6 +36,11 @@
 - Possible integration with writelatex.com or sharelatex.com.
  
 # DONE
+
+## April 28, 2013
+
+- Not checking of heading text: \title \author \inst \institute \part \chapter \section \subsection \subsubsection \paragraph
+
 
 ## April 20, 2013
 - correct show/hide of popover

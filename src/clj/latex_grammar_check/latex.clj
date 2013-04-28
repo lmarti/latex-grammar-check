@@ -27,15 +27,64 @@
 (defn comment? [token]
   (= (:node-type token) :tcommentline))
 
+(defn ignore-heading-text? [])
+
 (defn repeat-string [n s]
   (apply str (repeat n s)))
 
+(defn n-spaces [n] 
+  (repeat-string n " "))
+
+(defn title? [token]
+  (= (:node-type token) :tcword))
+
+(defn right-brace? [token]
+  (= (:node-type token) :trbrace))
+
+(defn ignore-title-words? [token]
+  (contains? #{"\\title" "\\author" "\\inst" "\\institute" "\\part" "\\chapter" 
+         "\\section" "\\subsection" "\\subsubsection" "\\paragraph"}
+       (:text token)))
+
+
+(defn update-state! [state token]
+  (cond (= (:node-type token) :trbrace) (assoc! state :ignore-text false)
+        (and (title? token) (ignore-title-words? token)) (assoc! state :ignore-text true)
+        :else state)
+  state)
+
+(defn map-words [tokens]
+  (-> (reduce (fn [result token] 
+                (cond (word? token)
+                      (if-not (:ignore-words result) 
+                        (update-in result [:m] conj (:text token))
+                        (update-in result [:m] conj (n-spaces (count (:text token)))))
+                      ;; start ignoring words when the token is one of the ignored titles
+                      (and (title? token) (ignore-title-words? token))
+                      (-> result 
+                          (update-in [:m] conj token)
+                          (assoc :ignore-words true))
+                      ;; stop ignoring words when } is found
+                      (right-brace? token)
+                      (-> result
+                          (update-in [:m] conj token)
+                          (assoc :ignore-words false))
+                      :else (update-in result [:m] conj token)))
+              {:ignore-words false :m []}
+              tokens)
+      :m))
+
+
+(update-in {:ignore-word false :m []} [:m] conj "df" "dfg")
+
 (defn extract-text [tokens]
   (let [text (->> tokens
-                  (map #(if (word? %) (:text %) %))
+                  (map-words)
                   (map #(if (comment? %) "\n" %))
                   (map #(if-not (string? %)
-                          (do (println (count (:text %))) (repeat-string (count (:text %)) " "))
+                          (n-spaces (count (:text %)))
                           %))
                   (string/join))]
     text))
+
+(extract-text (tokenize "\\sdf{Luis Martí}"))
