@@ -18,6 +18,8 @@ CodeMirror.prototype.getRange = function(from, to, seperator) {}
 
 CodeMirror.prototype.replaceRange = function(replacement, from, to) {}
 
+CodeMirror.prototype.setCursor = function(line, ch, extend) {}
+
 CodeMirror.TextMarker.prototype.clear = function() {}
 
 CodeMirror.TextMarker.prototype.find = function() {}
