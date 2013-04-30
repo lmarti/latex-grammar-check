@@ -1,5 +1,5 @@
 (ns latex-grammar-check.client.text-mark
-  (:require [dommy.core :refer [listen! replace-contents! append! descendant?]]
+  (:require [dommy.core :refer [listen! replace-contents! append! descendant? live-listener]]
             [dommy.attrs :refer [toggle-class! hidden? toggle! style]]
             [dommy.template :as template]
             [ajax.core :as ajax]
@@ -13,9 +13,9 @@
 
 (deftemplate popover-content [replacements]
   [:div
-   [:lu
+   [:lu#replacements
     (for [[index r] (map-indexed vector replacements)]
-     [:li {:id index :classes ["replacement"]} r])]])
+     [:li {:id index} r])]])
 
 (defn attach-popover! [elem message replacements]
   (let [content (popover-content replacements)]
@@ -30,6 +30,7 @@
 (defn grammar-error [text]
   [:span.grammar-checker-problem text])
 
+;; tbd: consider moving to handle-mouseover-error
 (def mouseover-popover (atom false))
 
 (defn show-popover [elem]
@@ -40,18 +41,35 @@
   (reset! mouseover-popover false)
   (.popover (js/jQuery elem) "hide"))
 
-;;tbd keep the popover if mouse still on grammar error
+(defn handle-mouseleave-error [elem]
+  (fn [e]
+    (wait 500 #(when-not @mouseover-popover (hide-popover elem)))))
+
+(defn replacement [editor mark replacement]
+  (let [{from "from" to "to"} (js->clj (cm/find-mark mark))]
+      (cm/replace-range editor replacement from to)))
+
+(defn replacement-selection-handler [elem editor error mark e]
+  (let [target (.-target e) 
+        id (.-id target)]
+    (replacement editor mark (get-in error [:replacements id]))
+    (hide-popover elem)
+    (.clear mark)))
+
+(defn attach-replacement-selection-handler! [elem popover editor error mark handler]
+  (listen! (sel1 popover "#replacements") :click #(handler elem editor error mark %)))
 
 ;; tbd use events to signal user mousing over a grammatical error
-(defn handle-mouseover-error [e]
-  (this-as elem
-    (let [popover (show-popover elem)]
-      (listen! popover :mouseenter #(reset! mouseover-popover true))
-      (wait 750 #(when-not @mouseover-popover (hide-popover elem)))
-      (listen! popover :mouseleave #(when-not (descendant? (.-relatedTarget e) popover)
-                                    ;;(js/alert (.-outerHTML (.-relatedTarget e)))
-                                    (hide-popover elem)))
-      )))
+(defn handle-mouseover-error [editor error mark]
+  (fn [e] 
+    (this-as elem
+      (let [popover (show-popover elem)]
+        (attach-replacement-selection-handler! 
+           elem popover editor error mark replacement-selection-handler)
+        (listen! elem :mouseleave (handle-mouseleave-error elem))
+        (listen! popover :mouseenter #(reset! mouseover-popover true))
+        (listen! popover :mouseleave #(hide-popover elem))
+        ))))
 
 (defn append-text-mark! [editor error]
   (let [{:keys [line column end-line end-column message replacements]} error
@@ -61,7 +79,7 @@
         elem (template/node (grammar-error text))
         mark (cm/mark-text editor from to {:clearOnEnter true :replacedWith elem})]
     (attach-popover! elem message replacements)
-    (listen! elem :mouseover handle-mouseover-error)
+    (listen! elem :mouseover (handle-mouseover-error editor error mark))
     mark))
 
 (defn handle-add [editor error]
@@ -79,6 +97,7 @@
 (defn handle-select [editor error]
   (when-let [{:keys [mark]} (get @error-to-mark-map error)]
     (let [{from "from"} (js->clj (.find mark))]
+      (.scrollIntoView editor (clj->js from) 100)
       (.setCursor editor (clj->js from))))
   (cm/focus editor))
 

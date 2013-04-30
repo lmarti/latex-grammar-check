@@ -1,10 +1,9 @@
 # TO DO
 
-- fix \documentstyle[html]{article} bug
-- Not checking of heading text: \title \author \inst \institute \part \chapter \section \subsection \subsubsection \paragraph. 
-  Users should be able to enable/disable this add more tags.
-- correct show/hide of popover
+- move popover related code to popover.cljs
 - use tooltip where there are no recommendations
+- fix \documentstyle[html]{article} bug general problem of not including some text between {}
+  Users should be able to enable/disable this add more tags.
 - fucking improve the stucture of the code
 - "check in progress" sign (hourglass, spinning thingy, etc.)
 - also display error message and recommendations on the gutter
@@ -19,6 +18,7 @@
 - Error feedback when the .tex file is not a valid latex for the parser.
 - support to Ignore error / Ignore all errors of this type
 - use jayq instead of using jquery directly
+
 
 # Main use case
 
@@ -37,8 +37,13 @@
  
 # DONE
 
-## April 20, 2013
+## April 28, 2013
 
+- Not checking of heading text: \title \author \inst \institute \part \chapter \section \subsection \subsubsection \paragraph
+
+
+## April 20, 2013
+- correct show/hide of popover
 - display error message and recommendations on mouse over
 
 ## April 13, 2013
