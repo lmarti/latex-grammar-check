@@ -13,7 +13,7 @@
 (defn handle-add [error]
   (let [parent (sel1 :#check-grammar-result)
         message (error-message error)]
-    (when (empty? @error-to-message-map) 
+    (when (empty? @error-to-message-map)
       (append! parent (template/node
         [:table#messages_table {:class "table table-condensed table-striped table-hover"}
          [:tr [:td "##"] [:td [:b "Description"]]]
@@ -23,10 +23,10 @@
     (swap! error-to-message-map assoc error message)))
 
 (defn handle-remove [error]
-  (when-let [message (get @error-to-message-map error)] 
+  (when-let [message (get @error-to-message-map error)]
     (remove! message)
     (swap! error-to-message-map dissoc error)
-    (when (empty? @error-to-message-map) 
+    (when (empty? @error-to-message-map)
       (remove! (sel1 :#messages_table)))))
 
 (defn handle-select [error]

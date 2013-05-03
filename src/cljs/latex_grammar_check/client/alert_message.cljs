@@ -23,8 +23,6 @@
   (when-let [elem (sel1 :#alert)]
     (remove! elem)))
 
-;;(js/alert "dsd")
+;(show-info-alert! "daa")
 
-(show-info-alert! "ddd")
-
-(hide-alert!)
+;(hide-alert!)

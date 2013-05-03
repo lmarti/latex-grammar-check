@@ -29,12 +29,6 @@
              {:handler handle-grammar-check-result
               :params  {:latex-markup (cm/get-value @editor)}}))
 
-(defn handle-dumb-check-grammar [e]
-  (cm/focus @editor)
-  (ajax/POST "/dumb-check-grammar"
-             {:handler handle-grammar-check-result
-              :params  {:latex-markup (cm/get-value @editor)}}))
-
 (defn handle-extract-text-result [text]
   (cm/set-value @editor text))
 
@@ -45,15 +39,14 @@
               :params  {:latex-markup (cm/get-value @editor)}}))
 
 (defn ^:export init []
-  (-> container 
+  (-> container
       (append! (template/node [:textarea#latex-markup "A \\LaTeX sentence with \\emph{a} error in the \\textbf{Hitchhiker's Guide} tot he Galaxy"]))
-      (append! (template/node 
+      (append! (template/node
        [:div#buttons.text-center
         [:div#buttons.btn-group
-          [:a#check-grammar.btn  
+          [:a#check-grammar.btn
             [:i.icon-check]
             [:span  " Check Grammar"]]
-          [:a#dumb-check-grammar.btn "Dumb Check Grammar"]
           [:a#extract-text.btn "Extract Text"]]]))
       (append! (template/node [:div#check-grammar-result])))
   (reset! editor (cm/create-editor (sel1 :#latex-markup) {:lineNumbers true
@@ -61,9 +54,10 @@
                                                           :tabMode "indent"
                                                           :highlightSelectionMatches true
                                                           ;;:styleActiveLine true
-                                                          :gutters ["grammar-checker-problem-gutter"]}))  
+                                                          :gutters ["grammar-checker-problem-gutter"]}))
   (listen! (sel1 :#check-grammar) :click handle-check-grammar)
-  (listen! (sel1 :#dumb-check-grammar) :click handle-dumb-check-grammar)
   (listen! (sel1 :#extract-text) :click handle-extract-text)
   (em/init)
   (tm/init @editor))
+
+
