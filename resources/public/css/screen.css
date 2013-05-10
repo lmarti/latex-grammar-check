@@ -17,3 +17,16 @@
   border-bottom: 2px dotted red;
 }
 
+.latex-img {
+  max-width: 100%;
+  max-height: 25px;
+}
+
+body {
+  margin: 0;
+  font-family: FontAwesome, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  background-color: #ffffff;
+}
